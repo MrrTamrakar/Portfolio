@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "title": "Kaji Production House",
+        "client": "Bennevis, Bruxelles, Miss Universe",
+        "description": "High-end cinematic video campaigns, title cards, and promotional motion design assets.",
+        "category": "video",
+        "mediaType": "video",
+        "mediaSrc": "kaji-preview.mp4"
+    },
+    {
+        "id": 2,
+        "title": "Kashyap Advisors",
+        "client": "Corporate Identity Suite",
+        "description": "Performance-driven visual assets, strategic marketing layouts, and corporate digital messaging systems.",
+        "category": "graphic",
+        "mediaType": "image",
+        "mediaSrc": "kashyap-preview.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Paila Education Consultancy",
+        "client": "Educational Content Strategy",
+        "description": "Translating complex educational pathways and visa details into highly structured media grids and motion explainers.",
+        "category": "graphic",
+        "mediaType": "image",
+        "mediaSrc": "paila-preview.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Craftalaya Digital Ecosystem",
+        "client": "Glorious Nepal, AT Travels, Smart Holidays",
+        "description": "Driving conversions and engagement metrics via tailored advertising materials and targeted travel promotional videos.",
+        "category": "video",
+        "mediaType": "video",
+        "mediaSrc": "craftalaya-preview.mp4"
+    },
+    {
+        "id": 5,
+        "title": "Sprachschule Kathmandu",
+        "client": "Institutional Media Architecture",
+        "description": "Full-scale media coordination handling digital event coverage, structural scheduling, and course marketing content.",
+        "category": "graphic",
+        "mediaType": "image",
+        "mediaSrc": "sprachschule-preview.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Creative Lab",
+        "client": "Personal R&D Experiments",
+        "description": "Unrestricted visual research, stylized typography studies, and complex visual effects processing pipelines.",
+        "category": "video",
+        "mediaType": "video",
+        "mediaSrc": "personal-preview.mp4"
+    }
+]

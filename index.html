@@ -1,10 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dipankar Tamrakar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipankar Tamrakar | Creative Director & Visual Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello, I'm Dipankar Tamrakar</h1>
-    <p>This is my portfolio website.</p>
-</body>
-</html>
+
+    <div class="page-loader"></div>
+    <canvas id="ambient-canvas"></canvas>
+
+    <div class="site-wrapper">
+
+        <nav class="main-nav">
+            <div class="nav-logo" data-target="home-view">DT<span>.</span></div>
+            <div class="nav-links">
+                <button class="nav-route active" data-target="home-view">Selected Work</button>
+                <button class="nav-route" data-target="resume-view">Experience & Timeline</button>
+                <button class="nav-route cta-nav" data-target="contact-view">Let's Talk</button>
+            </div>
+        </nav>
+
+        <main id="home-view" class="view-panel active">
+            <header class="hero-section">
+                <div class="hero-grid-container">
+                    <div class="hero-text-side">
+                        <div class="hero-tagline">Available for Freelance & Contract Works</div>
+                        <h1>Crafting Digital Experiences Through <span class="text-gradient">Design & Motion</span></h1>
+                        <p class="hero-bio">
+                            Results-driven Graphic Designer & Video Editor specializing in high-fidelity social media branding, 
+                            cinematic motion graphics, and performance-focused visual campaigns. Turning concepts into creative realities.
+                        </p>
+                        <div class="hero-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Based in</span>
+                                <span class="meta-value">Lalitpur, Nepal</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Contact</span>
+                                <span class="meta-value">info.mrrtamrakar@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image-side">
+                        <div class="avatar-glow-wrapper">
+                            <div class="avatar-frame">
+                                <img src="avatar.jpg" alt="Dipankar Tamrakar" class="profile-photo" onerror="this.style.display='none';">
+                                <div class="avatar-fallback">✨</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="work-section">
+                <div class="section-header">
+                    <h2>Featured Case Studies</h2>
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="video">Motion & Video</button>
+                        <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+                    </div>
+                </div>
+                <div class="portfolio-grid" id="dynamic-portfolio-grid"></div>
+            </section>
+        </main>
+
+        <main id="resume-view" class="view-panel">
+            <section class="resume-section">
+                <div class="resume-hero">
+                    <span class="section-subtitle">The Track Record</span>
+                    <h2>Experience & Education</h2>
+                    <p>Building consistent visual identity platforms, handling high-volume creative assets, and driving user engagement metrics.</p>
+                </div>
+
+                <div class="resume-grid">
+                    <div class="timeline-column">
+                        <h3 class="column-title">💼 Professional History</h3>
+                        <div class="timeline-wrapper">
+
+                            <div class="timeline-card current">
+                                <div class="card-status-badge">Active Role</div>
+                                <span class="timeline-date">Current</span>
+                                <h4>Kaji Production House</h4>
+                                <span class="timeline-role">Lead Motion Designer & Video Editor</span>
+                                <p>Executing advanced cinematic video edits, promotional motion sequences, and high-fidelity title cards for premium brands.</p>
+                            </div>
+
+                            <div class="timeline-card verified">
+                                <div class="card-status-badge">Verified Letter</div>
+                                <span class="timeline-date">Dec 2025 - May 2026</span>
+                                <h4>Kashyap Advisors</h4>
+                                <span class="timeline-role">Graphic Designer & Video Editor (Part-Time)</span>
+                                <p>Led creative design across group entities. Developed corporate visual identities, strategy marketing layouts, and optimized digital messaging systems.</p>
+                            </div>
+
+                            <div class="timeline-card verified">
+                                <div class="card-status-badge">Verified Letter</div>
+                                <span class="timeline-date">Nov 2025 - Feb 2026</span>
+                                <h4>Paila Education Consultancy</h4>
+                                <span class="timeline-role">Graphic Designer &
