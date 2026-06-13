@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Dipankar Tamrakar | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -280,7 +281,7 @@
 
     <div id="image-lightbox-modal" class="lightbox-overlay" onclick="closeImageLightbox()">
         <button class="lightbox-close-btn" onclick="closeImageLightbox()">&times;</button>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="Full size graphic preview" onclick="event.stopPropagation()">
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Full size graphic preview" draggable="false" oncontextmenu="return false" onclick="event.stopPropagation()">
     </div>
 
     <script src="script.js"></script>

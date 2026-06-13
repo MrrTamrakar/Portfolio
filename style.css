@@ -20,6 +20,15 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Disable iOS long-press callout (Save Image / Add to Photos) and
+   text-selection drag on all media elements site-wide */
+img, video {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
 body { background-color: var(--bg-primary); color: var(--text-main); font-family: var(--font-stack); overflow-x: hidden; }
 
 /* ==========================================================================
@@ -37,7 +46,7 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     position: absolute;
     border-radius: 50%;
     filter: blur(90px);
-    opacity: 0.5;
+    opacity: 0.16;
     will-change: transform;
 }
 .aurora-blob--blue {
@@ -45,14 +54,28 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     max-width: 600px; max-height: 600px;
     top: -10%; left: -8%;
     background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
-    animation: auroraDriftA 6s ease-in-out infinite alternate;
+    animation: auroraDriftA 38s ease-in-out infinite alternate;
 }
 .aurora-blob--gold {
     width: 36vw; height: 36vw;
     max-width: 520px; max-height: 520px;
     bottom: -12%; right: -6%;
     background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
-    animation: auroraDriftB 8s ease-in-out infinite alternate;
+    animation: auroraDriftB 46s ease-in-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+    .aurora-blob { filter: blur(55px); opacity: 0.22; }
+    .aurora-blob--blue {
+        width: 80vw; height: 80vw;
+        max-width: 420px; max-height: 420px;
+        top: -15%; left: -25%;
+    }
+    .aurora-blob--gold {
+        width: 75vw; height: 75vw;
+        max-width: 380px; max-height: 380px;
+        bottom: -15%; right: -25%;
+    }
 }
 
 @keyframes auroraDriftA {

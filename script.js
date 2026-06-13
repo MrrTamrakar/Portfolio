@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
             <div class="graphic-item-node">
                 <div class="graphic-media-box" onclick="openImageLightbox('${asset.srcID}', '${asset.title.replace(/'/g, "\\'")}')">
-                    <img src="${asset.srcID}" alt="${asset.title}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎨</div>'">
+                    <img src="${asset.srcID}" alt="${asset.title}" loading="lazy" draggable="false" oncontextmenu="return false" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎨</div>'">
                 </div>
                 <div class="graphic-item-meta"><p>${asset.title}</p></div>
             </div>
@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
             <div class="vault-item-node">
                 <div class="vault-media-box">
-                    <video data-src="${asset.srcID}" controls preload="none" playsinline onloadedmetadata="adjustVideoBox(this)" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎬</div>'"></video>
+                    <video data-src="${asset.srcID}" controls controlsList="nodownload noremoteplayback" disablePictureInPicture preload="none" playsinline oncontextmenu="return false" onloadedmetadata="adjustVideoBox(this)" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎬</div>'"></video>
                 </div>
                 <div class="vault-item-meta"><h4>${asset.title}</h4></div>
             </div>
@@ -823,5 +823,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
         tracks.forEach(track => trackObserver.observe(track));
     })();
+
+    // =========================================================================
+    // GLOBAL MEDIA PROTECTION — disable right-click save & dragging on
+    // all images/videos site-wide (covers logos, hero/about photos, and
+    // dynamically-rendered org cards / dedicated page media)
+    // =========================================================================
+    document.addEventListener("contextmenu", (e) => {
+        if (e.target.tagName === "IMG" || e.target.tagName === "VIDEO") {
+            e.preventDefault();
+        }
+    });
+    document.addEventListener("dragstart", (e) => {
+        if (e.target.tagName === "IMG" || e.target.tagName === "VIDEO") {
+            e.preventDefault();
+        }
+    });
+
+    // Block long-press "Download image" / context menu on Android Chrome,
+    // which fires via a long touchstart rather than the contextmenu event.
+    let touchHoldTimer = null;
+    document.addEventListener("touchstart", (e) => {
+        if (e.target.tagName === "IMG" || e.target.tagName === "VIDEO") {
+            touchHoldTimer = setTimeout(() => {
+                e.target.style.pointerEvents = "none";
+                setTimeout(() => { e.target.style.pointerEvents = ""; }, 50);
+            }, 450);
+        }
+    }, { passive: true });
+    document.addEventListener("touchend", () => {
+        if (touchHoldTimer) { clearTimeout(touchHoldTimer); touchHoldTimer = null; }
+    }, { passive: true });
+    document.addEventListener("touchmove", () => {
+        if (touchHoldTimer) { clearTimeout(touchHoldTimer); touchHoldTimer = null; }
+    }, { passive: true });
 
 });
