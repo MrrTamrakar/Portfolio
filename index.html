@@ -3,104 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipankar Tamrakar | Creative Director & Visual Designer</title>
+    <title>Dipankar Tamrakar | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="page-loader"></div>
+    <div id="intro-loader">
+        <h1 id="intro-text">Hello, I am Dipankar Tamrakar.</h1>
+    </div>
+
     <canvas id="ambient-canvas"></canvas>
 
-    <div class="site-wrapper">
+    <div class="app-container" id="main-portfolio-page">
+        
+        <header class="site-header">
+            <a href="#" class="brand-signature-logo" onclick="switchSection('work')">
+                <img src="assets/My-logo.png" alt="DT Logo" class="nav-logo-img">
+            </a>
+            
+            <nav class="navigation-bar">
+                <span class="nav-route active" id="nav-work" onclick="switchSection('work')">My Work</span>
+                <span class="nav-route" id="nav-experience" onclick="switchSection('experience')">Experience & Education</span>
+                <span class="nav-route" id="nav-about" onclick="switchSection('about')">About Me</span>
+                <span class="nav-route nav-route-button" id="nav-contact" onclick="switchSection('contact')">Let's Talk</span>
+            </nav>
+        </header>
 
-        <nav class="main-nav">
-            <div class="nav-logo" data-target="home-view">DT<span>.</span></div>
-            <div class="nav-links">
-                <button class="nav-route active" data-target="home-view">Selected Work</button>
-                <button class="nav-route" data-target="resume-view">Experience & Timeline</button>
-                <button class="nav-route cta-nav" data-target="contact-view">Let's Talk</button>
+        <main id="section-work" class="view-panel active">
+            <section class="hero-editorial-grid">
+                
+                <div class="hero-avatar-column">
+                    <div class="profile-circle-frame">
+                        <img src="transparent-avatar.png" alt="Dipankar Tamrakar" class="profile-img-element">
+                    </div>
+                </div>
+                
+                <div class="hero-text-column">
+                    <span class="availability-tag">Video Editor, Motion & Graphic Designer</span>
+                    <h2>Bringing creative visual concepts to life.</h2>
+                    <p class="hero-sub">Select an organization below to see the complete video campaigns, motion graphics, and designs I have created.</p>
+                </div>
+            </section>
+
+            <div id="organization-grid" class="org-responsive-grid">
+                </div>
+        </main>
+
+        <main id="section-experience" class="view-panel">
+            <section class="hero-editorial-compact">
+                <span class="availability-tag">History Matrix</span>
+                <h2>Career & Academic Background</h2>
+            </section>
+
+            <div class="split-history-layout">
+                <div class="history-column-block">
+                    <h3 class="column-block-title">Work Experience</h3>
+                    <div class="experience-vertical-track">
+                        
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag current">PRESENT ENGAGEMENT</span>
+                                <span class="node-timeline-date">APR 2026 - ONGOING</span>
+                            </div>
+                            <h4>Kaji Production</h4>
+                            <div class="node-role">Lead Motion Designer & Video Editor</div>
+                            <button class="expand-details-btn" onclick="openDetailsModal('kaji')">Read More Details →</button>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag verified">VERIFIED WORK</span>
+                                <span class="node-timeline-date">JAN 2026 - MAR 2026</span>
+                            </div>
+                            <h4>Craftalaya </h4>
+                            <div class="node-role">Video Editor & Graphic Designer</div>
+                            <button class="expand-details-btn" onclick="openDetailsModal('craftalaya')">Read More Details →</button>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag verified">VERIFIED WORK</span>
+                                <span class="node-timeline-date">DEC 2025 - MAY 2026</span>
+                            </div>
+                            <h4>Kashyap Advisors</h4>
+                            <div class="node-role">Graphic Designer & Video Editor</div>
+                            <button class="expand-details-btn" onclick="openDetailsModal('kashyap')">Read More Details →</button>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag verified">VERIFIED WORK</span>
+                                <span class="node-timeline-date">NOV 2025 - FEB 2026</span>
+                            </div>
+                            <h4>Paila Education Consultancy</h4>
+                            <div class="node-role">Graphic Designer & Video Editor</div>
+                            <button class="expand-details-btn" onclick="openDetailsModal('paila')">Read More Details →</button>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag verified">VERIFIED WORK</span>
+                                <span class="node-timeline-date">MAY 2025 - OCT 2025</span>
+                            </div>
+                            <h4>Sprachschule Kathmandu</h4>
+                            <div class="node-role">Graphic Designer & Video Editor</div>
+                            <button class="expand-details-btn" onclick="openDetailsModal('sprachschule')">Read More Details →</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="history-column-block">
+                    <h3 class="column-block-title">Education</h3>
+                    <div class="experience-vertical-track">
+                        
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag academic">UNDERGRADUATE</span>
+                                <span class="node-timeline-date">2023 - 2027 (EXPECTED)</span>
+                            </div>
+                            <h4>Presidential Graduate School</h4>
+                            <div class="node-role">Bachelor's Degree Program</div>
+                            <p class="node-details">Major: BSc IT</p>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-meta-row">
+                                <span class="node-status-tag academic">HIGHER SECONDARY</span>
+                                <span class="node-timeline-date">2021 - 2023</span>
+                            </div>
+                            <h4>Moonlight Secondary School</h4>
+                            <div class="node-role">Higher Secondary Education (+2)</div>
+                            <p class="node-details">Major: Management</p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </nav>
+        </main>
 
-        <main id="home-view" class="view-panel active">
-            <header class="hero-section">
-                <div class="hero-grid-container">
-                    <div class="hero-text-side">
-                        <div class="hero-tagline">Available for Freelance & Contract Works</div>
-                        <h1>Crafting Digital Experiences Through <span class="text-gradient">Design & Motion</span></h1>
-                        <p class="hero-bio">
-                            Results-driven Graphic Designer & Video Editor specializing in high-fidelity social media branding, 
-                            cinematic motion graphics, and performance-focused visual campaigns. Turning concepts into creative realities.
-                        </p>
-                        <div class="hero-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Based in</span>
-                                <span class="meta-value">Lalitpur, Nepal</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Contact</span>
-                                <span class="meta-value">info.mrrtamrakar@gmail.com</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-image-side">
-                        <div class="avatar-glow-wrapper">
-                            <div class="avatar-frame">
-                                <img src="avatar.jpg" alt="Dipankar Tamrakar" class="profile-photo" onerror="this.style.display='none';">
-                                <div class="avatar-fallback">✨</div>
-                            </div>
+        <main id="section-about" class="view-panel">
+            <section class="about-grid-layout">
+                <div class="about-text-side">
+                    <span class="availability-tag">About Me</span>
+                    <h3>I build engaging visual content that captures attention.</h3>
+                    <p>Based in Lalitpur, Nepal, I am a professional graphic designer, video editor, and motion artist. Working inside the Adobe Creative Suite ecosystem, I help brands and organizations deliver clean, striking, and high-impact digital content.</p>
+                    
+                    <div class="skills-box-card">
+                        <h4>Tools I Work With</h4>
+                        <div class="skills-flex-container">
+                            <span class="skill-pill">Adobe Premiere Pro</span>
+                            <span class="skill-pill">Adobe After Effects</span>
+                            <span class="skill-pill">Adobe Photoshop</span>
+                            <span class="skill-pill">Adobe Illustrator</span>
+                            <span class="skill-pill">Canva</span>
                         </div>
                     </div>
                 </div>
-            </header>
-
-            <section class="work-section">
-                <div class="section-header">
-                    <h2>Featured Case Studies</h2>
-                    <div class="filter-controls">
-                        <button class="filter-btn active" data-filter="all">All Projects</button>
-                        <button class="filter-btn" data-filter="video">Motion & Video</button>
-                        <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+                <div class="about-image-side">
+                    <div class="pose-card-image-wrap">
+                        <img src="Straight-wave.png" alt="Dipankar Portrait" class="pose-character-img">
                     </div>
                 </div>
-                <div class="portfolio-grid" id="dynamic-portfolio-grid"></div>
             </section>
         </main>
 
-        <main id="resume-view" class="view-panel">
-            <section class="resume-section">
-                <div class="resume-hero">
-                    <span class="section-subtitle">The Track Record</span>
-                    <h2>Experience & Education</h2>
-                    <p>Building consistent visual identity platforms, handling high-volume creative assets, and driving user engagement metrics.</p>
+        <main id="section-contact" class="view-panel">
+            <section class="contact-grid-wrapper">
+                <div class="contact-info-side">
+                    <span class="availability-tag">Get In Touch</span>
+                    <h3 class="editorial-headline">Let's discuss a project.</h3>
+                    <p>Want to work together on a video edit, motion graphics project, or social media design campaign? Send a message directly through the form, or reach out using my details below.</p>
+                    <div class="contact-channels">
+                        <p>✉️ Email: <strong>info.mrrtamrakakar@gmail.com</strong></p>
+                        <p>📱 Phone: <strong>+977 9768448671</strong></p>
+                    </div>
                 </div>
+                <div class="contact-form-side">
+                    <form class="premium-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="d620e5ac-c8bb-46e5-8f46-4c56f69b4bda">
 
-                <div class="resume-grid">
-                    <div class="timeline-column">
-                        <h3 class="column-title">💼 Professional History</h3>
-                        <div class="timeline-wrapper">
+                        <div class="form-group">
+                            <label>Your Name / Organization</label>
+                            <input type="text" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Project Details</label>
+                            <textarea rows="4" name="message" placeholder="What kind of design or video project are you planning?" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
 
-                            <div class="timeline-card current">
-                                <div class="card-status-badge">Active Role</div>
-                                <span class="timeline-date">Current</span>
-                                <h4>Kaji Production House</h4>
-                                <span class="timeline-role">Lead Motion Designer & Video Editor</span>
-                                <p>Executing advanced cinematic video edits, promotional motion sequences, and high-fidelity title cards for premium brands.</p>
-                            </div>
+        <footer class="site-footer">
+            <p>&copy; 2026 Dipankar Tamrakar. All Rights Reserved.</p>
+        </footer>
+    </div>
 
-                            <div class="timeline-card verified">
-                                <div class="card-status-badge">Verified Letter</div>
-                                <span class="timeline-date">Dec 2025 - May 2026</span>
-                                <h4>Kashyap Advisors</h4>
-                                <span class="timeline-role">Graphic Designer & Video Editor (Part-Time)</span>
-                                <p>Led creative design across group entities. Developed corporate visual identities, strategy marketing layouts, and optimized digital messaging systems.</p>
-                            </div>
+    <div class="app-container display-none" id="dedicated-work-page">
+        <header class="site-header">
+            <a href="#" class="brand-signature" onclick="exitDedicatedPage()">DT<span>.</span></a>
+            <button class="back-home-btn" onclick="exitDedicatedPage()">← Back to Home</button>
+        </header>
 
-                            <div class="timeline-card verified">
-                                <div class="card-status-badge">Verified Letter</div>
-                                <span class="timeline-date">Nov 2025 - Feb 2026</span>
-                                <h4>Paila Education Consultancy</h4>
-                                <span class="timeline-role">Graphic Designer &
+        <main class="dedicated-project-view">
+            <div class="project-header-intro">
+                <span class="availability-tag" id="project-page-type">Category Scope</span>
+                <h2 id="project-page-title">Company Name</h2>
+                <p id="project-page-desc" class="hero-sub">Overview description metrics setup.</p>
+            </div>
+
+            <div id="project-sections-container">
+                </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Dipankar Tamrakar. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <div id="experience-details-modal" class="document-modal-overlay" onclick="closeDetailsModal()">
+        <div class="document-modal-container modal-long-content" onclick="event.stopPropagation()">
+            <button class="document-close-btn" onclick="closeDetailsModal()">&times;</button>
+            <span class="availability-tag" id="modal-org-timeline">Timeline</span>
+            <h3 id="modal-org-title" style="color: #ffffff; font-size: 1.8rem; margin-bottom: 0.25rem;">Organization Name</h3>
+            <div id="modal-org-role" style="color: var(--accent-blue); font-weight: 500; font-size: 1rem; margin-bottom: 1.5rem;">Role Title</div>
+            
+            <div class="achievement-details-body">
+                <ul id="modal-achievements-list" class="styled-achievements-ul">
+                    </ul>
+            </div>
+
+            <div id="modal-document-action-area" style="margin-top: 1.5rem;">
+                </div>
+        </div>
+    </div>
+
+    <div id="credential-viewer-modal" class="document-modal-overlay" onclick="closeCredentialModal()">
+        <div class="document-modal-container" onclick="event.stopPropagation()">
+            <button class="document-close-btn" onclick="closeCredentialModal()">&times;</button>
+            <h3 id="document-modal-title" class="document-modal-title">Document Title</h3>
+            <div class="document-frame-body">
+                <img id="document-modal-img" src="" alt="Credential Visual Display Element">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

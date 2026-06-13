@@ -1,56 +1,162 @@
 [
-    {
-        "id": 1,
-        "title": "Kaji Production House",
-        "client": "Bennevis, Bruxelles, Miss Universe",
-        "description": "High-end cinematic video campaigns, title cards, and promotional motion design assets.",
-        "category": "video",
-        "mediaType": "video",
-        "mediaSrc": "kaji-preview.mp4"
-    },
-    {
-        "id": 2,
-        "title": "Kashyap Advisors",
-        "client": "Corporate Identity Suite",
-        "description": "Performance-driven visual assets, strategic marketing layouts, and corporate digital messaging systems.",
-        "category": "graphic",
-        "mediaType": "image",
-        "mediaSrc": "kashyap-preview.jpg"
-    },
-    {
-        "id": 3,
-        "title": "Paila Education Consultancy",
-        "client": "Educational Content Strategy",
-        "description": "Translating complex educational pathways and visa details into highly structured media grids and motion explainers.",
-        "category": "graphic",
-        "mediaType": "image",
-        "mediaSrc": "paila-preview.jpg"
-    },
-    {
-        "id": 4,
-        "title": "Craftalaya Digital Ecosystem",
-        "client": "Glorious Nepal, AT Travels, Smart Holidays",
-        "description": "Driving conversions and engagement metrics via tailored advertising materials and targeted travel promotional videos.",
-        "category": "video",
-        "mediaType": "video",
-        "mediaSrc": "craftalaya-preview.mp4"
-    },
-    {
-        "id": 5,
-        "title": "Sprachschule Kathmandu",
-        "client": "Institutional Media Architecture",
-        "description": "Full-scale media coordination handling digital event coverage, structural scheduling, and course marketing content.",
-        "category": "graphic",
-        "mediaType": "image",
-        "mediaSrc": "sprachschule-preview.jpg"
-    },
-    {
-        "id": 6,
-        "title": "Creative Lab",
-        "client": "Personal R&D Experiments",
-        "description": "Unrestricted visual research, stylized typography studies, and complex visual effects processing pipelines.",
-        "category": "video",
-        "mediaType": "video",
-        "mediaSrc": "personal-preview.mp4"
-    }
+  {
+    "id": "kaji",
+    "organizationName": "Kaji Production",
+    "skillsScope": "Lead Motion Designer & Video Editor",
+    "shortOverview": "Editing high-quality videos, managing motion graphics timelines, and designing promotional campaign visuals.",
+    "sections": [
+      {
+        "name": "Bennevis",
+        "workTypeTag": "Client Campaign",
+        "assets": [
+          {
+            "title": "Bennevis Promotional Video",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "Video edit, pacing adjustments, and custom color grading."
+          }
+        ]
+      },
+      {
+        "name": "Bruxelles",
+        "workTypeTag": "Client Campaign",
+        "assets": [
+          {
+            "title": "Bruxelles Visual Asset",
+            "type": "image",
+            "srcID": "assets/work/bruxelles-sample.jpg",
+            "metaDescription": "Motion graphics layouts and promotional assets."
+          }
+        ]
+      },
+      {
+        "name": "361",
+        "workTypeTag": "Client Campaign",
+        "assets": [
+          {
+            "title": "361 Brand Reel",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "Dynamic transitions, clip sequencing, and audio design sync."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "craftalaya",
+    "organizationName": "Craftalaya",
+    "skillsScope": "Video Editing & Graphic Design",
+    "shortOverview": "Engineering targeted promotional videos and commercial assets to scale brand reach.",
+    "sections": [
+      {
+        "name": "Glorious Nepal Educational Consultancy",
+        "workTypeTag": "Agency Client",
+        "assets": [
+          {
+            "title": "Consultancy Marketing Reel",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "High-engagement social media explainer and informative layout graphics."
+          }
+        ]
+      },
+      {
+        "name": "Smart Holidays",
+        "workTypeTag": "Travel Advertisement Campaign",
+        "assets": [
+          {
+            "title": "Smart Holidays Travel Promo",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "Cinematic sequence layouts, pacing edits, and color grading matching."
+          }
+        ]
+      },
+      {
+        "name": "AT Travels and Tours",
+        "workTypeTag": "Travel Advertisement Campaign",
+        "assets": [
+          {
+            "title": "AT Travels Campaign Video",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "Social media video ad targeted for high-retention audience hook points."
+          }
+        ]
+      },
+      {
+        "name": "New Journey Travels and Tourism LLC",
+        "workTypeTag": "Travel Advertisement Campaign",
+        "assets": [
+          {
+            "title": "New Journey Commercial Asset",
+            "type": "image",
+            "srcID": "assets/work/new-journey-sample.jpg",
+            "metaDescription": "Promotional banners and social media layouts optimized for brand distribution."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kashyap",
+    "organizationName": "Kashyap Advisors",
+    "skillsScope": "Graphic Design & Video Editing",
+    "shortOverview": "Formulating structured corporate layouts, presentations, and digital content channels.",
+    "sections": [
+      {
+        "name": "Corporate Strategy Visuals",
+        "workTypeTag": "Internal Presentation Assets",
+        "assets": [
+          {
+            "title": "Investor Deck Presentation",
+            "type": "image",
+            "srcID": "assets/work/kashyap-deck.jpg",
+            "metaDescription": "Clean vector infographics, slide layouts, and typography formatting."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paila",
+    "organizationName": "Paila Education Consultancy",
+    "skillsScope": "Video Editing & Graphic Design",
+    "shortOverview": "Producing easy-to-understand educational explainers and high-retention layout assets.",
+    "sections": [
+      {
+        "name": "Student Explainer Content",
+        "workTypeTag": "Video Campaigns",
+        "assets": [
+          {
+            "title": "Educational Explainer Reel",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "Informational layout editing designed to outline step-by-step program details."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sprachschule",
+    "organizationName": "Sprachschule Kathmandu",
+    "skillsScope": "Motion Graphics & Graphic Design",
+    "shortOverview": "Coordinating digital layout media packages, promotional assets, and design streams.",
+    "sections": [
+      {
+        "name": "Language Program Marketing",
+        "workTypeTag": "Social Content Materials",
+        "assets": [
+          {
+            "title": "Course Promotion Banner",
+            "type": "image",
+            "srcID": "assets/work/sprachschule-banner.jpg",
+            "metaDescription": "Clean typography layout and vector graphic design configurations."
+          }
+        ]
+      }
+    ]
+  }
 ]
