@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +46,15 @@
                 </div>
             </section>
 
-            <div id="organization-grid" class="org-responsive-grid">
-                </div>
+            <!-- Loading skeleton shown while projects.json fetches -->
+            <div id="org-loading-skeleton" class="org-skeleton-grid">
+                <div class="skeleton-card"><div class="skeleton-logo"></div><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line narrow"></div></div>
+                <div class="skeleton-card"><div class="skeleton-logo"></div><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line narrow"></div></div>
+                <div class="skeleton-card"><div class="skeleton-logo"></div><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line narrow"></div></div>
+            </div>
+
+            <div id="organization-grid" class="org-responsive-grid" style="display:none;">
+            </div>
         </main>
 
         <main id="section-experience" class="view-panel">
@@ -73,10 +81,10 @@
                         <div class="timeline-node">
                             <div class="node-meta-row">
                                 <span class="node-status-tag verified">VERIFIED WORK</span>
-                                <span class="node-timeline-date">JAN 2026 - MAR 2026</span>
+                                <span class="node-timeline-date">JUN 2024 - NOV 2025</span>
                             </div>
-                            <h4>Craftalaya </h4>
-                            <div class="node-role">Video Editor & Graphic Designer</div>
+                            <h4>Craftalaya Tech</h4>
+                            <div class="node-role">Graphic Designer & Video Editor (Freelance)</div>
                             <button class="expand-details-btn" onclick="openDetailsModal('craftalaya')">Read More Details →</button>
                         </div>
 
@@ -103,7 +111,7 @@
                         <div class="timeline-node">
                             <div class="node-meta-row">
                                 <span class="node-status-tag verified">VERIFIED WORK</span>
-                                <span class="node-timeline-date">MAY 2025 - OCT 2025</span>
+                                <span class="node-timeline-date">OCT 2024 - NOV 2025</span>
                             </div>
                             <h4>Sprachschule Kathmandu</h4>
                             <div class="node-role">Graphic Designer & Video Editor</div>
@@ -120,7 +128,7 @@
                         <div class="timeline-node">
                             <div class="node-meta-row">
                                 <span class="node-status-tag academic">UNDERGRADUATE</span>
-                                <span class="node-timeline-date">2023 - 2027 (EXPECTED)</span>
+                                <span class="node-timeline-date">OCT 2023 - 2027 (EXPECTED)</span>
                             </div>
                             <h4>Presidential Graduate School</h4>
                             <div class="node-role">Bachelor's Degree Program</div>
@@ -180,7 +188,15 @@
                     </div>
                 </div>
                 <div class="contact-form-side">
-                    <form class="premium-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Success / Error feedback banners -->
+                    <div id="form-success-msg" class="form-feedback form-feedback--success" style="display:none;">
+                        ✅ Message sent! I'll get back to you soon.
+                    </div>
+                    <div id="form-error-msg" class="form-feedback form-feedback--error" style="display:none;">
+                        ❌ Something went wrong. Please try again or email me directly.
+                    </div>
+
+                    <form class="premium-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="d620e5ac-c8bb-46e5-8f46-4c56f69b4bda">
 
                         <div class="form-group">
@@ -195,7 +211,7 @@
                             <label>Project Details</label>
                             <textarea rows="4" name="message" placeholder="What kind of design or video project are you planning?" required></textarea>
                         </div>
-                        <button type="submit" class="form-submit-btn">Send Message</button>
+                        <button type="submit" class="form-submit-btn" id="form-submit-btn">Send Message</button>
                     </form>
                 </div>
             </section>
@@ -220,7 +236,7 @@
             </div>
 
             <div id="project-sections-container">
-                </div>
+            </div>
         </main>
 
         <footer class="site-footer">
@@ -236,12 +252,11 @@
             <div id="modal-org-role" style="color: var(--accent-blue); font-weight: 500; font-size: 1rem; margin-bottom: 1.5rem;">Role Title</div>
             
             <div class="achievement-details-body">
-                <ul id="modal-achievements-list" class="styled-achievements-ul">
-                    </ul>
+                <div id="modal-achievements-list"></div>
             </div>
 
             <div id="modal-document-action-area" style="margin-top: 1.5rem;">
-                </div>
+            </div>
         </div>
     </div>
 

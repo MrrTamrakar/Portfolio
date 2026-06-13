@@ -1,6 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. RE-ENGINEERED CINEMATIC SCREEN LAUNCH ANIMATION FLUID TIMELINE
+    // =========================================================================
+    // 1. CINEMATIC SCREEN LAUNCH ANIMATION
+    // =========================================================================
     const introLoader = document.getElementById("intro-loader");
     const introText = document.getElementById("intro-text");
 
@@ -25,32 +28,52 @@ document.addEventListener("DOMContentLoaded", () => {
     window.history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
 
+    // =========================================================================
     // 2. ORBITING BACKGROUND PARTICLES ENGINE
+    // =========================================================================
     const canvas = document.getElementById('ambient-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let w = canvas.width = window.innerWidth;
         let h = canvas.height = window.innerHeight;
-        window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+        window.addEventListener('resize', () => {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        });
 
         const dots = [];
         for (let i = 0; i < 25; i++) {
-            dots.push({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.2 + 1, vx: (Math.random() - 0.5) * 0.15, vy: (Math.random() - 0.5) * 0.15 });
+            dots.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 1.2 + 1,
+                vx: (Math.random() - 0.5) * 0.15,
+                vy: (Math.random() - 0.5) * 0.15
+            });
         }
         function draw() {
-            ctx.clearRect(0,0,w,h);
+            ctx.clearRect(0, 0, w, h);
             dots.forEach(d => {
                 d.x += d.vx; d.y += d.vy;
-                if(d.x<0 || d.x>w) d.vx *= -1; if(d.y<0 || d.y>h) d.vy *= -1;
-                ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
-                ctx.fillStyle = "rgba(0, 122, 255, 0.15)"; ctx.fill();
+                if (d.x < 0 || d.x > w) d.vx *= -1;
+                if (d.y < 0 || d.y > h) d.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(0, 122, 255, 0.15)";
+                ctx.fill();
             });
             requestAnimationFrame(draw);
         }
         draw();
     }
 
-    // 3. SECURE EXPERIENCE OBJECT DATABASE ENGINE
+    // =========================================================================
+    // 3. EXPERIENCE DATA
+    //    achievements arrays use a special format:
+    //      - strings starting with a digit + "." become bold role headings
+    //      - all other strings become bullet points under the nearest heading
+    //      - if no heading exists yet, bullets go into an unnamed first block
+    // =========================================================================
     const experienceDetailsData = {
         kaji: {
             title: "Kaji Production",
@@ -65,14 +88,14 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         craftalaya: {
             title: "Craftalaya",
-            role: "Graphic Designer & Video Editor",
+            role: "Graphic Designer & Video Editor (Freelance)",
             timeline: "JUN 2024 - NOV 2025",
             achievements: [
-                "Designed social media ads and promotional creative assets.",
-                "Edited dynamic promotional videos using Adobe Premiere Pro and After Effects.",
-                "Delivered creative solutions for partner businesses, enhancing brand consistency for Glorious Nepal Consultancy and driving a 15% booking increase for AT Travels & Tours."
+                "Designed customizable social media posts, ads, and promotional creative assets.",
+                "Edited promotional videos using Adobe Premiere Pro and After Effects.",
+                "Delivered creative solutions for multiple partner businesses, enhancing brand consistency for Glorious Nepal Consultancy and driving a 15% booking increase for AT Travels & Tours."
             ],
-            letterAsset: { path: "assets/craftalaya_letter.jpg", label: "View Craftalaya Experience Letter" }
+            letterAsset: { path: "assets/craftalaya_letter.jpg", label: "View Craftalaya Tech Experience Letter" }
         },
         kashyap: {
             title: "Kashyap Advisors",
@@ -90,11 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
             role: "Graphic Designer & Video Editor",
             timeline: "NOV 2025 - FEB 2026",
             achievements: [
-                "1. Graphic Designer & Video Editor (Nov 2025 - Feb 2026)",
+                "1. Graphic Designer & Video Editor (Nov 2025 – Feb 2026)",
                 "Designed social media posts, educational graphics, podcast videos and promotional visuals.",
                 "Created thumbnails, banners, and motion graphics to optimize content delivery.",
                 "Translated complex admission and visa documentation into clear, visually structured content.",
-                "2. Intern (Jun 2025 - Sep 2025)",
+                "2. Intern (Jun 2025 – Sep 2025)",
                 "Produced 100+ educational posts and motion-based graphics.",
                 "Edited promotional and podcast videos for various platforms."
             ],
@@ -119,12 +142,87 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 4. INTERACTIVE BLURRED ACCORDION DETAIL OVERLAY MANAGER
+    // =========================================================================
+    // 4. MODAL RENDERER — parses numbered headings vs bullet points
+    // =========================================================================
+
+    /**
+     * Renders the achievements array into structured role blocks.
+     * Lines that start with a digit followed by "." are treated as
+     * bold role headings; everything else becomes a bullet point.
+     */
+    function renderAchievements(achievements) {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("modal-achievements-wrapper");
+
+        // Detect if this org has any numbered headings at all
+        const hasHeadings = achievements.some(line => /^\d+\./.test(line.trim()));
+
+        if (!hasHeadings) {
+            // Simple single-role org — just a plain bulleted list
+            const ul = document.createElement("ul");
+            ul.classList.add("modal-role-points");
+            achievements.forEach(point => {
+                const li = document.createElement("li");
+                li.innerText = point;
+                ul.appendChild(li);
+            });
+            // Wrap in a single block for consistent padding
+            const block = document.createElement("div");
+            block.classList.add("modal-role-block");
+            block.appendChild(ul);
+            wrapper.appendChild(block);
+            return wrapper;
+        }
+
+        // Multi-role org — group into blocks by heading
+        let currentBlock = null;
+        let currentList = null;
+
+        achievements.forEach(line => {
+            if (/^\d+\./.test(line.trim())) {
+                // Start a new role block
+                currentBlock = document.createElement("div");
+                currentBlock.classList.add("modal-role-block");
+
+                const heading = document.createElement("div");
+                heading.classList.add("modal-role-heading");
+                heading.innerText = line;
+                currentBlock.appendChild(heading);
+
+                currentList = document.createElement("ul");
+                currentList.classList.add("modal-role-points");
+                currentBlock.appendChild(currentList);
+
+                wrapper.appendChild(currentBlock);
+            } else {
+                // Bullet point — attach to current block
+                if (!currentList) {
+                    // Edge case: bullets before any heading
+                    currentBlock = document.createElement("div");
+                    currentBlock.classList.add("modal-role-block");
+                    currentList = document.createElement("ul");
+                    currentList.classList.add("modal-role-points");
+                    currentBlock.appendChild(currentList);
+                    wrapper.appendChild(currentBlock);
+                }
+                const li = document.createElement("li");
+                li.innerText = line;
+                currentList.appendChild(li);
+            }
+        });
+
+        return wrapper;
+    }
+
+    // =========================================================================
+    // 5. MODAL OPEN / CLOSE LOGIC
+    // =========================================================================
     const detailsModal = document.getElementById("experience-details-modal");
     const modalTitle = document.getElementById("modal-org-title");
     const modalRole = document.getElementById("modal-org-role");
     const modalTimeline = document.getElementById("modal-org-timeline");
-    const modalList = document.getElementById("modal-achievements-list");
+    const modalAchievementsContainer = document.getElementById("modal-achievements-list");
     const modalActionArea = document.getElementById("modal-document-action-area");
 
     window.openDetailsModal = function(key) {
@@ -134,14 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
         modalTitle.innerText = item.title;
         modalRole.innerText = item.role;
         modalTimeline.innerText = item.timeline;
-        
-        modalList.innerHTML = "";
-        item.achievements.forEach(pt => {
-            const li = document.createElement("li");
-            li.innerText = pt;
-            modalList.appendChild(li);
-        });
 
+        // Clear and re-render achievements with the new structured renderer
+        modalAchievementsContainer.innerHTML = "";
+        modalAchievementsContainer.appendChild(renderAchievements(item.achievements));
+
+        // Render optional experience letter button
         modalActionArea.innerHTML = "";
         if (item.letterAsset) {
             const btn = document.createElement("button");
@@ -160,32 +256,28 @@ document.addEventListener("DOMContentLoaded", () => {
     window.closeDetailsModal = function() {
         if (!detailsModal) return;
         detailsModal.classList.remove("active");
-        if (!document.getElementById("credential-viewer-modal").classList.contains("active")) {
+        const credModal = document.getElementById("credential-viewer-modal");
+        if (!credModal.classList.contains("active")) {
             document.body.style.overflow = "";
         }
     };
 
-    // 5. MAIN SPA ROUTER — WITH ANIMATED PANEL TRANSITIONS
-    // Track current section for history
+    // =========================================================================
+    // 6. SPA ROUTER — with scroll-to-top and browser history
+    // =========================================================================
     let currentSection = 'work';
 
     window.switchSection = function(sectionTargetID, pushHistory = true) {
-        // Close any open dedicated page and modals
         _exitDedicatedPageSilent();
         closeDetailsModal();
         closeCredentialModal();
-        
-        // Animate out current panel, animate in new one
-        const allPanels = document.querySelectorAll('.view-panel');
-        allPanels.forEach(panel => {
-            if (panel.classList.contains('active')) {
-                panel.classList.remove('active');
-            }
+
+        document.querySelectorAll('.view-panel').forEach(panel => {
+            panel.classList.remove('active');
         });
 
         const targetedPanel = document.getElementById(`section-${sectionTargetID}`);
         if (targetedPanel) {
-            // Small delay so CSS animation triggers cleanly on re-display
             requestAnimationFrame(() => {
                 targetedPanel.classList.add('active');
             });
@@ -195,16 +287,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const activeRouteButton = document.getElementById(`nav-${sectionTargetID}`);
         if (activeRouteButton) activeRouteButton.classList.add('active');
 
+        // Scroll to top on every section switch
         window.scrollTo({ top: 0, behavior: "smooth" });
 
-        // Push to browser history so back button works
         if (pushHistory && sectionTargetID !== currentSection) {
             history.pushState({ section: sectionTargetID, page: 'main' }, '', `#${sectionTargetID}`);
         }
         currentSection = sectionTargetID;
     };
 
-    // 6. MOUSE HOVER RADIAL CARD LIGHTING GRADIENTS
+    // =========================================================================
+    // 7. MOUSE HOVER RADIAL CARD LIGHTING
+    // =========================================================================
     function registerCardLightingEffect() {
         document.querySelectorAll('.org-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -217,9 +311,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 7. JSON WORKS INJECTOR
+    // =========================================================================
+    // 8. JSON WORKS INJECTOR — with skeleton loader
+    // =========================================================================
     let orgDataStore = [];
     const orgGridElement = document.getElementById("organization-grid");
+    const orgSkeleton = document.getElementById("org-loading-skeleton");
 
     fetch("projects.json")
         .then(res => res.json())
@@ -227,8 +324,19 @@ document.addEventListener("DOMContentLoaded", () => {
             orgDataStore = data;
             renderOrganizationGrid(orgDataStore);
             registerCardLightingEffect();
+            // Hide skeleton, show real grid
+            if (orgSkeleton) orgSkeleton.style.display = "none";
+            if (orgGridElement) orgGridElement.style.display = "";
         })
-        .catch(err => console.error("Error setting up corporate dataset arrays:", err));
+        .catch(err => {
+            console.error("Error loading projects:", err);
+            // Hide skeleton on error too, show an empty state
+            if (orgSkeleton) orgSkeleton.style.display = "none";
+            if (orgGridElement) {
+                orgGridElement.style.display = "";
+                orgGridElement.innerHTML = '<p style="color:var(--text-muted);padding:2rem 0;">Could not load projects. Please refresh.</p>';
+            }
+        });
 
     function renderOrganizationGrid(data) {
         if (!orgGridElement) return;
@@ -237,12 +345,16 @@ document.addEventListener("DOMContentLoaded", () => {
         data.forEach(org => {
             const card = document.createElement("div");
             card.classList.add("org-card");
+            if (org.id === "personal") card.classList.add("personal-card");
             card.setAttribute("onclick", `navigateToDedicatedPage('${org.id}')`);
+
+            const logoSrc = org.id === "personal" ? "assets/My-logo.png" : `assets/logos/${org.id}.png`;
+            const logoBoxClass = org.id === "personal" ? "glass-ui-logo-box personal-logo-box" : "glass-ui-logo-box";
 
             card.innerHTML = `
                 <div class="org-card-header">
-                    <div class="glass-ui-logo-box">
-                        <img src="assets/logos/${org.id}.png" alt="${org.organizationName} Logo" onerror="this.src='assets/logos/default-logo.png'">
+                    <div class="${logoBoxClass}">
+                        <img src="${logoSrc}" alt="${org.organizationName} Logo" onerror="this.src='assets/logos/default-logo.png'">
                     </div>
                 </div>
                 <h3>${org.organizationName}</h3>
@@ -253,19 +365,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 8. DEDICATED VAULT ROUTERS — WITH BROWSER HISTORY SUPPORT
+    // =========================================================================
+    // 9. DEDICATED WORK PAGE — with browser history support
+    // =========================================================================
     const mainPage = document.getElementById("main-portfolio-page");
     const dedicatedPage = document.getElementById("dedicated-work-page");
     const sectionsContainer = document.getElementById("project-sections-container");
 
     window.navigateToDedicatedPage = function(orgID) {
         const matchingOrg = orgDataStore.find(item => item.id === orgID);
-        if(!matchingOrg || !dedicatedPage || !mainPage) return;
+        if (!matchingOrg || !dedicatedPage || !mainPage) return;
 
         document.getElementById("project-page-title").innerText = matchingOrg.organizationName;
         document.getElementById("project-page-desc").innerText = matchingOrg.shortOverview;
         document.getElementById("project-page-type").innerText = matchingOrg.skillsScope;
-        
+
         sectionsContainer.innerHTML = "";
 
         matchingOrg.sections.forEach(sec => {
@@ -304,31 +418,26 @@ document.addEventListener("DOMContentLoaded", () => {
             sectionsContainer.appendChild(clientBlock);
         });
 
-        // Show dedicated page with slide-in animation
         mainPage.classList.add("display-none");
         dedicatedPage.classList.remove("display-none");
         dedicatedPage.classList.remove("sliding-out");
         dedicatedPage.classList.add("sliding-in");
         window.scrollTo({ top: 0, behavior: "instant" });
 
-        // Push state so browser back button returns to portfolio home
         history.pushState({ page: 'dedicated', orgID: orgID, section: currentSection }, '', `#work/${orgID}`);
     };
 
-    // Internal exit — no history manipulation (used by switchSection and popstate)
     function _exitDedicatedPageSilent() {
-        if(!dedicatedPage || !mainPage) return;
-        if (dedicatedPage.classList.contains("display-none")) return; // already hidden
+        if (!dedicatedPage || !mainPage) return;
+        if (dedicatedPage.classList.contains("display-none")) return;
         dedicatedPage.classList.add("display-none");
         dedicatedPage.classList.remove("sliding-in");
         mainPage.classList.remove("display-none");
     }
 
-    // Public exit — called by "Back to Home" button, updates history
     window.exitDedicatedPage = function() {
-        if(!dedicatedPage || !mainPage) return;
+        if (!dedicatedPage || !mainPage) return;
 
-        // Animate out
         dedicatedPage.classList.remove("sliding-in");
         dedicatedPage.classList.add("sliding-out");
 
@@ -339,27 +448,24 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo({ top: 0, behavior: "instant" });
         }, 350);
 
-        // Go back in browser history if we came from a push
         history.back();
     };
 
-    // 9. BROWSER BACK / FORWARD BUTTON HANDLER (popstate)
-    // This is the fix for mobile back gesture and laptop back button
+    // =========================================================================
+    // 10. BROWSER BACK / FORWARD BUTTON HANDLER
+    // =========================================================================
     window.addEventListener('popstate', (event) => {
         const state = event.state;
 
         if (!state) {
-            // Fallback: arrived at base state — show work section, hide dedicated page
             _exitDedicatedPageSilent();
             _showSectionOnly('work');
             return;
         }
 
         if (state.page === 'dedicated') {
-            // Going forward again into a dedicated page — re-render it without pushing new history
             const matchingOrg = orgDataStore.find(item => item.id === state.orgID);
             if (matchingOrg) {
-                // Re-populate without pushing history again
                 document.getElementById("project-page-title").innerText = matchingOrg.organizationName;
                 document.getElementById("project-page-desc").innerText = matchingOrg.shortOverview;
                 document.getElementById("project-page-type").innerText = matchingOrg.skillsScope;
@@ -370,13 +476,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.scrollTo({ top: 0, behavior: "instant" });
             }
         } else if (state.page === 'main') {
-            // Going back to a main section — hide dedicated page and show correct panel
             _exitDedicatedPageSilent();
             _showSectionOnly(state.section || 'work');
         }
     });
 
-    // Helper: switch visible panel WITHOUT pushing history (used by popstate handler)
     function _showSectionOnly(sectionID) {
         document.querySelectorAll('.view-panel').forEach(panel => panel.classList.remove('active'));
         const targetedPanel = document.getElementById(`section-${sectionID}`);
@@ -390,10 +494,11 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSection = sectionID;
     }
 
-    // Set initial history state so popstate works from very first page load
     history.replaceState({ page: 'main', section: 'work' }, '', '#work');
 
-    // 10. CREDENTIAL VIEW OVERLAYS MECHANICS
+    // =========================================================================
+    // 11. CREDENTIAL VIEWER MODAL
+    // =========================================================================
     const credModal = document.getElementById("credential-viewer-modal");
     const credImg = document.getElementById("document-modal-img");
     const credTitle = document.getElementById("document-modal-title");
@@ -409,10 +514,56 @@ document.addEventListener("DOMContentLoaded", () => {
     window.closeCredentialModal = function() {
         if (!credModal) return;
         credModal.classList.remove("active");
-        
-        if (!detailsModal.classList.contains("active")) {
+        const detModal = document.getElementById("experience-details-modal");
+        if (!detModal.classList.contains("active")) {
             document.body.style.overflow = "";
         }
         setTimeout(() => { if (credImg) credImg.src = ""; }, 350);
     };
+
+    // =========================================================================
+    // 12. CONTACT FORM — async submit with success / error feedback
+    // =========================================================================
+    const contactForm = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("form-submit-btn");
+    const successMsg = document.getElementById("form-success-msg");
+    const errorMsg = document.getElementById("form-error-msg");
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Hide any previous messages
+            successMsg.style.display = "none";
+            errorMsg.style.display = "none";
+
+            // Disable button while sending
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending…";
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    successMsg.style.display = "block";
+                    contactForm.reset();
+                } else {
+                    errorMsg.style.display = "block";
+                }
+            } catch (err) {
+                errorMsg.style.display = "block";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Send Message";
+            }
+        });
+    }
+
 });
+
+

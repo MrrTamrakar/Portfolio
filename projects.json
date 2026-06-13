@@ -1,5 +1,49 @@
 [
   {
+    "id": "personal",
+    "organizationName": "Dipankar Tamrakar",
+    "skillsScope": "Personal Creative Portfolio",
+    "shortOverview": "A curated showcase of independent design experiments, motion graphics reels, and branding concepts created outside of client work.",
+    "sections": [
+      {
+        "name": "Motion Graphics Reel",
+        "workTypeTag": "Self-Initiated Project",
+        "assets": [
+          {
+            "title": "Personal Motion Reel",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "A compilation of original motion graphics and animation experiments showcasing transitions, typography, and visual storytelling."
+          }
+        ]
+      },
+      {
+        "name": "Brand Identity Concepts",
+        "workTypeTag": "Design Exploration",
+        "assets": [
+          {
+            "title": "Brand Concept Mockup",
+            "type": "image",
+            "srcID": "assets/work/personal-brand-sample.jpg",
+            "metaDescription": "Conceptual branding and visual identity exploration including logo systems and color palettes."
+          }
+        ]
+      },
+      {
+        "name": "Social Media Design Templates",
+        "workTypeTag": "Creative Practice",
+        "assets": [
+          {
+            "title": "Social Media Layout Set",
+            "type": "image",
+            "srcID": "assets/work/personal-social-sample.jpg",
+            "metaDescription": "A set of original social media post designs exploring typography, color, and layout composition."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "kaji",
     "organizationName": "Kaji Production",
     "skillsScope": "Lead Motion Designer & Video Editor",
@@ -44,8 +88,48 @@
     ]
   },
   {
+    "id": "kashyap",
+    "organizationName": "Kashyap Advisors",
+    "skillsScope": "Graphic Design & Video Editing",
+    "shortOverview": "Formulating structured corporate layouts, presentations, and digital content channels.",
+    "sections": [
+      {
+        "name": "Corporate Strategy Visuals",
+        "workTypeTag": "Internal Presentation Assets",
+        "assets": [
+          {
+            "title": "Investor Deck Presentation",
+            "type": "image",
+            "srcID": "assets/work/kashyap-deck.jpg",
+            "metaDescription": "Clean vector infographics, slide layouts, and typography formatting."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paila",
+    "organizationName": "Paila Education Consultancy",
+    "skillsScope": "Video Editing & Graphic Design",
+    "shortOverview": "Producing easy-to-understand educational explainers and high-retention layout assets.",
+    "sections": [
+      {
+        "name": "Student Explainer Content",
+        "workTypeTag": "Video Campaigns",
+        "assets": [
+          {
+            "title": "Educational Explainer Reel",
+            "type": "youtube",
+            "srcID": "dQw4w9WgXcQ",
+            "metaDescription": "Informational layout editing designed to outline step-by-step program details."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "craftalaya",
-    "organizationName": "Craftalaya",
+    "organizationName": "Craftalaya Tech",
     "skillsScope": "Video Editing & Graphic Design",
     "shortOverview": "Engineering targeted promotional videos and commercial assets to scale brand reach.",
     "sections": [
@@ -94,46 +178,6 @@
             "type": "image",
             "srcID": "assets/work/new-journey-sample.jpg",
             "metaDescription": "Promotional banners and social media layouts optimized for brand distribution."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "kashyap",
-    "organizationName": "Kashyap Advisors",
-    "skillsScope": "Graphic Design & Video Editing",
-    "shortOverview": "Formulating structured corporate layouts, presentations, and digital content channels.",
-    "sections": [
-      {
-        "name": "Corporate Strategy Visuals",
-        "workTypeTag": "Internal Presentation Assets",
-        "assets": [
-          {
-            "title": "Investor Deck Presentation",
-            "type": "image",
-            "srcID": "assets/work/kashyap-deck.jpg",
-            "metaDescription": "Clean vector infographics, slide layouts, and typography formatting."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "paila",
-    "organizationName": "Paila Education Consultancy",
-    "skillsScope": "Video Editing & Graphic Design",
-    "shortOverview": "Producing easy-to-understand educational explainers and high-retention layout assets.",
-    "sections": [
-      {
-        "name": "Student Explainer Content",
-        "workTypeTag": "Video Campaigns",
-        "assets": [
-          {
-            "title": "Educational Explainer Reel",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "Informational layout editing designed to outline step-by-step program details."
           }
         ]
       }
