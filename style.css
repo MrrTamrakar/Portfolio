@@ -1,4 +1,5 @@
 
+
 /* ==========================================================================
    1. EXCLUSIVE CORE PALETTE VARIABLES & BASE CONFIGS
    ========================================================================== */
@@ -376,6 +377,52 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 .view-document-btn:hover { background: var(--text-main); color: var(--bg-primary); border-color: var(--text-main); }
 
 /* ==========================================================================
+   7B. IMAGE LIGHTBOX — fullscreen zoom-in preview for graphics
+   ========================================================================== */
+.lightbox-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(8, 9, 11, 0.92); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    z-index: 10010; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    padding: 2rem;
+}
+.lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+
+.lightbox-img {
+    max-width: 92vw; max-height: 92vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+    transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+}
+.lightbox-overlay.active .lightbox-img { transform: scale(1); }
+
+.lightbox-close-btn {
+    position: absolute; top: 1.5rem; right: 2rem;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);
+    color: var(--text-main); font-size: 1.8rem; line-height: 1;
+    width: 44px; height: 44px; border-radius: 50%;
+    cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10011;
+}
+.lightbox-close-btn:hover { background: var(--text-main); color: var(--bg-primary); }
+
+/* Graphic tiles get a pointer cursor + subtle hover hint that they're clickable */
+.graphic-media-box { cursor: zoom-in; position: relative; }
+.graphic-media-box::after {
+    content: "🔍";
+    position: absolute; top: 0.5rem; right: 0.5rem;
+    background: rgba(0,0,0,0.55); border-radius: 6px;
+    width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; opacity: 0; transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+.graphic-item-node:hover .graphic-media-box::after { opacity: 1; }
+
+/* ==========================================================================
    8. HEADER, NAVBAR & FORMS
    ========================================================================== */
 .site-header {
@@ -705,5 +752,3 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     }
     .graphics-grid-layout { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
 }
-
-

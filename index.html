@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -270,8 +271,11 @@
         </div>
     </div>
 
+    <div id="image-lightbox-modal" class="lightbox-overlay" onclick="closeImageLightbox()">
+        <button class="lightbox-close-btn" onclick="closeImageLightbox()">&times;</button>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Full size graphic preview" onclick="event.stopPropagation()">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
-

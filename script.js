@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", () => {
     
     // =========================================================================
@@ -440,7 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function buildGraphicTile(asset) {
         return `
             <div class="graphic-item-node">
-                <div class="graphic-media-box">
+                <div class="graphic-media-box" onclick="openImageLightbox('${asset.srcID}', '${asset.title.replace(/'/g, "\\'")}')">
                     <img src="${asset.srcID}" alt="${asset.title}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎨</div>'">
                 </div>
                 <div class="graphic-item-meta"><p>${asset.title}</p></div>
@@ -448,11 +449,30 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
+    /**
+     * Called via onloadedmetadata on each <video>. Switches the parent
+     * .vault-media-box from a fixed 16:9 box (landscape default) to a
+     * taller portrait box for 9:16 reels, and uses object-fit: contain
+     * for portrait clips so nothing gets cropped.
+     */
+    window.adjustVideoBox = function(videoEl) {
+        const box = videoEl.parentElement;
+        if (!box || !videoEl.videoWidth || !videoEl.videoHeight) return;
+        const ratio = videoEl.videoWidth / videoEl.videoHeight;
+        if (ratio < 1) {
+            // Portrait or square video — use its real aspect ratio, contain (no cropping)
+            box.style.paddingTop = `${(1 / ratio) * 100}%`;
+            videoEl.style.objectFit = "contain";
+            box.style.background = "#000";
+        }
+        // Landscape videos keep the default 16:9 cover box defined in CSS
+    };
+
     function buildVideoTile(asset) {
         return `
             <div class="vault-item-node">
                 <div class="vault-media-box">
-                    <video src="${asset.srcID}" controls preload="metadata" playsinline onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎬</div>'"></video>
+                    <video data-src="${asset.srcID}" controls preload="none" playsinline onloadedmetadata="adjustVideoBox(this)" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎬</div>'"></video>
                 </div>
                 <div class="vault-item-meta"><h4>${asset.title}</h4></div>
             </div>
@@ -497,6 +517,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 sectionsContainer.appendChild(block);
             });
         }
+
+        setupLazyVideoLoading(sectionsContainer);
+    }
+
+    /**
+     * Observes all <video data-src="..."> elements within the given
+     * container and assigns the real src (triggering load) only when
+     * the video scrolls into view, saving bandwidth on initial load.
+     */
+    function setupLazyVideoLoading(container) {
+        const videos = container.querySelectorAll("video[data-src]");
+        if (!videos.length) return;
+
+        if (!("IntersectionObserver" in window)) {
+            // Fallback: just load everything immediately
+            videos.forEach(v => { v.src = v.dataset.src; v.removeAttribute("data-src"); });
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    if (video.dataset.src) {
+                        video.src = video.dataset.src;
+                        video.removeAttribute("data-src");
+                        video.preload = "metadata";
+                    }
+                    obs.unobserve(video);
+                }
+            });
+        }, { rootMargin: "200px 0px" });
+
+        videos.forEach(v => observer.observe(v));
     }
 
     window.navigateToDedicatedPage = function(orgID) {
@@ -613,6 +667,31 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { if (credImg) credImg.src = ""; }, 350);
     };
 
+    // ---- Image Lightbox (zoom-in preview for graphic tiles) ----
+    const lightboxModal = document.getElementById("image-lightbox-modal");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    window.openImageLightbox = function(imagePath, titleText) {
+        if (!lightboxModal || !lightboxImg) return;
+        lightboxImg.src = imagePath;
+        lightboxImg.alt = titleText || "Full size graphic preview";
+        lightboxModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    };
+
+    window.closeImageLightbox = function() {
+        if (!lightboxModal) return;
+        lightboxModal.classList.remove("active");
+        document.body.style.overflow = "";
+        setTimeout(() => { if (lightboxImg) lightboxImg.src = ""; }, 300);
+    };
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightboxModal && lightboxModal.classList.contains("active")) {
+            window.closeImageLightbox();
+        }
+    });
+
     // =========================================================================
     // 12. CONTACT FORM — async submit with success / error feedback
     // =========================================================================
@@ -657,5 +736,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-
-
