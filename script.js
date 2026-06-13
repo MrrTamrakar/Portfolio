@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             introText.classList.remove("visible");
             setTimeout(() => {
-                introText.innerText = "Welcome to my portfolio.";
+                introText.innerText = "Welcome to My Portfolio.";
                 introText.classList.add("visible");
             }, 400);
         }, 1800);
@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
             introLoader.style.transform = "translateY(-100vh)";
         }, 3400);
     }
+
+    // Add this inside your existing DOMContentLoaded listener:
+window.history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
 
     // 2. ORBITING BACKGROUND PARTICLES ENGINE
     const canvas = document.getElementById('ambient-canvas');
