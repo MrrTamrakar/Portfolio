@@ -17,7 +17,7 @@
     <div class="app-container" id="main-portfolio-page">
         
         <header class="site-header">
-            <a href="#" class="brand-signature-logo" onclick="switchSection('work')">
+            <a href="#" class="brand-signature-logo" onclick="switchSection('work'); return false;">
                 <img src="assets/My-logo.png" alt="DT Logo" class="nav-logo-img">
             </a>
             
@@ -208,7 +208,7 @@
 
     <div class="app-container display-none" id="dedicated-work-page">
         <header class="site-header">
-            <a href="#" class="brand-signature" onclick="exitDedicatedPage()">DT<span>.</span></a>
+            <a href="#" class="brand-signature" onclick="exitDedicatedPage(); return false;">DT<span>.</span></a>
             <button class="back-home-btn" onclick="exitDedicatedPage()">← Back to Home</button>
         </header>
 

@@ -93,9 +93,6 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 /* ==========================================================================
    4. ORGANIZATIONAL GLASS LOGO BADGES GRID (RESTORED CLEAN DESIGN)
    ========================================================================== */
-/* ==========================================================================
-   4. ORGANIZATIONAL GLASS GRID & WHITISH BADGES
-   ========================================================================== */
 .org-responsive-grid { 
     display: grid !important; 
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important; 
@@ -125,19 +122,16 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.08) !important;
 }
 
-/* AUTOMATIC SAME-SIZE FRAME WITH A WHITISH GLASS BACKDROP */
-/* LOGO CONTAINER: MADE BIGGER WITH A CRISP WHITE BACKGROUND */
+/* LOGO CONTAINER */
 .glass-ui-logo-box {
-    width: 150px !important;           /* Increased from 64px to make it noticeably bigger */
-    height: 150px !important;          /* Increased from 64px to make it noticeably bigger */
+    width: 150px !important;
+    height: 150px !important;
     display: flex !important; 
     align-items: center !important; 
     justify-content: center !important;
-    
-    background: #ffffff !important;   /* Solid white background so all logos stand out clearly */
+    background: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important; 
-    border-radius: 16px !important;   /* Slightly adjusted radius to match the larger size */
-    
+    border-radius: 16px !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important; 
     overflow: hidden !important; 
     position: relative !important;
@@ -148,15 +142,10 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 .glass-ui-logo-box img { 
     width: 100% !important;   
     height: 100% !important;  
-    object-fit: contain !important;   /* Keeps all logos perfectly proportional */
-    padding: 12px !important;         /* Generous, clean breathing room inside the white box */
-    filter: none !important;          /* Removed brightness filters so original colors show perfectly */
+    object-fit: contain !important;
+    padding: 12px !important;
+    filter: none !important;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important; 
-}
-
-/* Hover micro-interaction */
-.org-card:hover .glass-ui-logo-box img { 
-    transform: scale(1.06) !important; 
 }
 
 .org-card:hover .glass-ui-logo-box img { 
@@ -174,7 +163,7 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 
 .org-card .org-role-tag { 
     font-size: 0.9rem !important; 
-    color: #007AFF !important; /* Your signature vibrant blue color accent */
+    color: #007AFF !important;
     font-weight: 500 !important; 
     margin-bottom: 1.25rem !important; 
 }
@@ -216,10 +205,49 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 .styled-achievements-ul li::before { content: "▪"; position: absolute; left: 0; color: var(--accent-gold); font-size: 0.9rem; }
 
 /* ==========================================================================
-   6. SPA VIEW PANEL INTERACTION ENGINE (SPRING TRANSITIONS)
+   6. SPA VIEW PANEL — SMOOTH FADE + SLIDE TRANSITION ANIMATIONS
    ========================================================================== */
-.view-panel { display: none; opacity: 0; transform: translateY(16px); transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
-.view-panel.active { display: block; opacity: 1; transform: translateY(0); }
+.view-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* When panel becomes active, animate in */
+.view-panel.active {
+    display: block;
+    animation: panelFadeIn 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes panelFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dedicated work page — slide in from right */
+#dedicated-work-page {
+    animation: none;
+}
+#dedicated-work-page.sliding-in {
+    animation: slideInFromRight 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+#dedicated-work-page.sliding-out {
+    animation: slideOutToRight 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes slideInFromRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOutToRight {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(40px); }
+}
+
 .display-none { display: none !important; }
 
 /* ==========================================================================
@@ -252,15 +280,54 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 .view-document-btn:hover { background: var(--text-main); color: var(--bg-primary); border-color: var(--text-main); }
 
 /* ==========================================================================
-   8. COMPACT BASE STRUCTURES & FORMS
+   8. HEADER, NAVBAR & FORMS
    ========================================================================== */
-.site-header { display: flex; align-items: center; justify-content: space-between; padding: 2.5rem 0; margin-bottom: 1rem; }
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(18, 20, 23, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    /* extend header edge to edge within container */
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .brand-signature { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -0.03em; }
 .brand-signature span { color: var(--accent-blue); }
-.navigation-bar { display: flex; align-items: center; gap: 2rem; }
-.nav-route { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: color 0.25s ease; }
+
+.navigation-bar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+}
+
+.nav-route {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+}
 .nav-route:hover, .nav-route.active { color: var(--text-main); }
-.nav-route-button { background: var(--text-main); color: var(--bg-primary) !important; padding: 0.5rem 1.25rem; border-radius: 30px; font-weight: 600; }
+.nav-route-button {
+    background: var(--text-main);
+    color: var(--bg-primary) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 600;
+}
 
 .hero-editorial-compact { padding: 1.5rem 0; }
 .about-grid-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; padding: 2rem 0; }
@@ -289,6 +356,7 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 .site-footer p { font-size: 0.8rem; color: var(--text-dark); }
 
 .back-home-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); padding: 0.5rem 1.25rem; border-radius: 30px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.25s ease; }
+.back-home-btn:hover { background: var(--text-main); color: var(--bg-primary); }
 .project-header-intro { padding: 2rem 0 4rem 0; border-bottom: 1px solid var(--border-color); margin-bottom: 3rem; }
 .project-header-intro h2 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
 .client-showcase-block { margin-bottom: 5rem; }
@@ -309,6 +377,7 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+    flex-shrink: 0;
 }
 .nav-logo-img {
     height: 32px; 
@@ -322,123 +391,99 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     filter: brightness(1.1);
 }
 
-/* Responsive Media Breakpoints */
+/* ==========================================================================
+   9. RESPONSIVE BREAKPOINTS — FIXED MOBILE NAVBAR
+   ========================================================================== */
+
+/* Large tablet */
 @media (max-width: 1050px) {
     .hero-editorial-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
     .hero-avatar-column { order: -1; }
     .split-history-layout { grid-template-columns: 1fr; gap: 3rem; }
 }
+
+/* Medium tablet */
 @media (max-width: 850px) {
     .about-grid-layout, .contact-grid-wrapper { grid-template-columns: 1fr; gap: 3rem; }
     .works-grid-layout { grid-template-columns: 1fr; }
 }
-@media (max-width: 768px) {
-    .nav-logo-img { height: 26px; }
-}
 
-@media (max-width: 768px) {
-    .navbar {
-        display: flex;
-        flex-wrap: wrap; /* Allows items to wrap if they don't fit */
-        justify-content: center; /* Centers them */
-        gap: 10px; /* Adds space between items */
-        padding: 10px;
-    }
-    
-    .nav-links {
-        font-size: 14px; /* Makes text slightly smaller on mobile */
-    }
-
-    /* Adjusts the "Let's Talk" button size */
-    .nav-button {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-}
-
-/* =========================
-   MOBILE NAVBAR FIX
-========================= */
-
+/* Mobile — full navbar fix */
 @media (max-width: 768px) {
 
-    .top-navbar,
-    .navbar,
-    nav {
+    /* Sticky header stays visible, shrinks padding */
+    .site-header {
+        padding: 0.9rem 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 0.75rem;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
 
-        padding: 14px 18px !important;
+    .app-container {
+        padding: 0 1rem;
+    }
 
+    /* Logo shrinks gracefully */
+    .nav-logo-img {
+        height: 24px;
+    }
+
+    /* Nav bar scrolls horizontally if it gets very tight */
+    .navigation-bar {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-
-        gap: 12px;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;          /* Firefox */
+        -ms-overflow-style: none;       /* IE */
+        padding-bottom: 2px;            /* breathing room so text isn't clipped */
     }
+    .navigation-bar::-webkit-scrollbar { display: none; }
 
-    .nav-links,
-    .nav-menu {
-
-        display: flex;
-        align-items: center;
-
-        gap: 16px !important;
-
-        flex: 1;
-        justify-content: center;
-    }
-
+    /* Slightly smaller nav text */
     .nav-route {
-
-        font-size: 14px !important;
+        font-size: 0.8rem;
         white-space: nowrap;
-    }
-
-    .nav-logo img,
-    .logo img {
-
-        width: 42px !important;
-        height: auto;
-    }
-
-    .cta-button,
-    .nav-cta,
-    .talk-btn {
-
-        padding: 10px 16px !important;
-
-        font-size: 13px !important;
-
-        border-radius: 999px;
-
-        white-space: nowrap;
-
         flex-shrink: 0;
     }
 
-    body {
-        overflow-x: hidden;
+    /* "Let's Talk" button — compact on mobile */
+    .nav-route-button {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.8rem;
+        border-radius: 30px;
+    }
+
+    /* Hero text scales down */
+    .hero-text-column h2 { font-size: 1.9rem; }
+    .hero-sub { font-size: 0.95rem; }
+
+    /* Project page title */
+    .project-header-intro h2 { font-size: 2rem; }
+    .editorial-headline { font-size: 1.8rem; }
+
+    /* Org grid single column on mobile */
+    .org-responsive-grid {
+        grid-template-columns: 1fr !important;
     }
 }
 
-/* EXTRA SMALL DEVICES */
+/* Extra small devices */
 @media (max-width: 480px) {
-
-    .nav-links,
-    .nav-menu {
-        gap: 10px !important;
-    }
-
     .nav-route {
-        font-size: 13px !important;
+        font-size: 0.75rem !important;
     }
-
-    .cta-button,
-    .nav-cta,
-    .talk-btn {
-
-        padding: 8px 13px !important;
-        font-size: 12px !important;
+    .nav-route-button {
+        padding: 0.35rem 0.75rem !important;
+        font-size: 0.75rem !important;
+    }
+    .nav-logo-img {
+        height: 22px;
     }
 }
-
-

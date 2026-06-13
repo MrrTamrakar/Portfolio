@@ -5,12 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const introText = document.getElementById("intro-text");
 
     if (introLoader && introText) {
-        // Trigger subtle upward text fade-in shift
         setTimeout(() => {
             introText.classList.add("visible");
         }, 300);
 
-        // Sequence text swapping smoothly
         setTimeout(() => {
             introText.classList.remove("visible");
             setTimeout(() => {
@@ -19,15 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 400);
         }, 1800);
 
-        // Lift loader curtain cleanly away
         setTimeout(() => {
             introLoader.style.transform = "translateY(-100vh)";
         }, 3400);
     }
 
-    // Add this inside your existing DOMContentLoaded listener:
-window.history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
+    window.history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
 
     // 2. ORBITING BACKGROUND PARTICLES ENGINE
     const canvas = document.getElementById('ambient-canvas');
@@ -54,74 +50,74 @@ window.scrollTo(0, 0);
         draw();
     }
 
-    // 3. SECURE EXPERIENCE OBJECT DATABASE ENGINE (CLEAN & NATURAL)
+    // 3. SECURE EXPERIENCE OBJECT DATABASE ENGINE
     const experienceDetailsData = {
-    kaji: {
-        title: "Kaji Production",
-        role: "Lead Motion Designer & Video Editor",
-        timeline: "APR 2026 - ONGOING",
-        achievements: [
-            "Lead end-to-end production of motion graphics and video content.",
-            "Manage complex project timelines and technical pacing adjustments.",
-            "Direct creative visual identity for high-profile promotional campaigns."
-        ],
-        letterAsset: null
-    },
-    craftalaya: {
-        title: "Craftalaya",
-        role: "Graphic Designer & Video Editor",
-        timeline: "JUN 2024 - NOV 2025",
-        achievements: [
-            "Designed social media ads and promotional creative assets.",
-            "Edited dynamic promotional videos using Adobe Premiere Pro and After Effects.",
-            "Delivered creative solutions for partner businesses, enhancing brand consistency for Glorious Nepal Consultancy and driving a 15% booking increase for AT Travels & Tours."
-        ],
-        letterAsset: { path: "assets/craftalaya_letter.jpg", label: "View Craftalaya Experience Letter" }
-    },
-    kashyap: {
-        title: "Kashyap Advisors",
-        role: "Graphic Designer & Video Editor",
-        timeline: "DEC 2025 - MAY 2026",
-        achievements: [
-            "Led creative execution for group entities, ensuring a unified visual identity across all platforms.",
-            "Developed marketing collateral, promotional campaigns, printing materials and consultancy-focused visual communication materials.",
-            "Produced high-impact marketing videos and social media graphics to enhance digital engagement and brand positioning."
-        ],
-        letterAsset: { path: "assets/kashyap_letter.jpg", label: "View Kashyap Experience Letter" }
-    },
-    paila: {
-        title: "Paila Education Consultancy",
-        role: "Graphic Designer & Video Editor",
-        timeline: "NOV 2025 - FEB 2026",
-        achievements: [
-            "1. Graphic Designer & Video Editor (Nov 2025 - Feb 2026)",
-            "Designed social media posts, educational graphics, podcast videos and promotional visuals.",
-            "Created thumbnails, banners, and motion graphics to optimize content delivery.",
-            "Translated complex admission and visa documentation into clear, visually structured content.",
-            "2. Intern (Jun 2025 - Sep 2025)",
-            "Produced 100+ educational posts and motion-based graphics.",
-            "Edited promotional and podcast videos for various platforms."
-        ],
-        letterAsset: { path: "assets/paila_letter.jpg", label: "View Paila Experience Letter" }
-    },
-    sprachschule: {
-        title: "Sprachschule Kathmandu",
-        role: "Digital Media Coordinator / Junior Assistant Manager / Graphic Designer",
-        timeline: "OCT 2024 - NOV 2025",
-        achievements: [
-            "1. Digital Media Coordinator (Jul 2025 – Nov 2025)",
-            "Planned and executed social media content calendars.",
-            "Captured and edited event-based media and promotional content.",
-            "2. Junior Assistant Manager (Jan 2025 – Jun 2025)",
-            "Produced marketing materials including banners, bills, and flyers.",
-            "Supported on-site event management and provided creative direction.",
-            "3. Graphic Designer (Oct 2024 – Dec 2024)",
-            "Designed branded social media posts and marketing graphics.",
-            "Developed visual assets to support school programs and official announcements."
-        ],
-        letterAsset: { path: "assets/sprachschule_letter.jpg", label: "View Sprachschule Experience Letter" }
-    }
-};
+        kaji: {
+            title: "Kaji Production",
+            role: "Lead Motion Designer & Video Editor",
+            timeline: "APR 2026 - ONGOING",
+            achievements: [
+                "Lead end-to-end production of motion graphics and video content.",
+                "Manage complex project timelines and technical pacing adjustments.",
+                "Direct creative visual identity for high-profile promotional campaigns."
+            ],
+            letterAsset: null
+        },
+        craftalaya: {
+            title: "Craftalaya",
+            role: "Graphic Designer & Video Editor",
+            timeline: "JUN 2024 - NOV 2025",
+            achievements: [
+                "Designed social media ads and promotional creative assets.",
+                "Edited dynamic promotional videos using Adobe Premiere Pro and After Effects.",
+                "Delivered creative solutions for partner businesses, enhancing brand consistency for Glorious Nepal Consultancy and driving a 15% booking increase for AT Travels & Tours."
+            ],
+            letterAsset: { path: "assets/craftalaya_letter.jpg", label: "View Craftalaya Experience Letter" }
+        },
+        kashyap: {
+            title: "Kashyap Advisors",
+            role: "Graphic Designer & Video Editor",
+            timeline: "DEC 2025 - MAY 2026",
+            achievements: [
+                "Led creative execution for group entities, ensuring a unified visual identity across all platforms.",
+                "Developed marketing collateral, promotional campaigns, printing materials and consultancy-focused visual communication materials.",
+                "Produced high-impact marketing videos and social media graphics to enhance digital engagement and brand positioning."
+            ],
+            letterAsset: { path: "assets/kashyap_letter.jpg", label: "View Kashyap Experience Letter" }
+        },
+        paila: {
+            title: "Paila Education Consultancy",
+            role: "Graphic Designer & Video Editor",
+            timeline: "NOV 2025 - FEB 2026",
+            achievements: [
+                "1. Graphic Designer & Video Editor (Nov 2025 - Feb 2026)",
+                "Designed social media posts, educational graphics, podcast videos and promotional visuals.",
+                "Created thumbnails, banners, and motion graphics to optimize content delivery.",
+                "Translated complex admission and visa documentation into clear, visually structured content.",
+                "2. Intern (Jun 2025 - Sep 2025)",
+                "Produced 100+ educational posts and motion-based graphics.",
+                "Edited promotional and podcast videos for various platforms."
+            ],
+            letterAsset: { path: "assets/paila_letter.jpg", label: "View Paila Experience Letter" }
+        },
+        sprachschule: {
+            title: "Sprachschule Kathmandu",
+            role: "Digital Media Coordinator / Junior Assistant Manager / Graphic Designer",
+            timeline: "OCT 2024 - NOV 2025",
+            achievements: [
+                "1. Digital Media Coordinator (Jul 2025 – Nov 2025)",
+                "Planned and executed social media content calendars.",
+                "Captured and edited event-based media and promotional content.",
+                "2. Junior Assistant Manager (Jan 2025 – Jun 2025)",
+                "Produced marketing materials including banners, bills, and flyers.",
+                "Supported on-site event management and provided creative direction.",
+                "3. Graphic Designer (Oct 2024 – Dec 2024)",
+                "Designed branded social media posts and marketing graphics.",
+                "Developed visual assets to support school programs and official announcements."
+            ],
+            letterAsset: { path: "assets/sprachschule_letter.jpg", label: "View Sprachschule Experience Letter" }
+        }
+    };
 
     // 4. INTERACTIVE BLURRED ACCORDION DETAIL OVERLAY MANAGER
     const detailsModal = document.getElementById("experience-details-modal");
@@ -139,7 +135,6 @@ window.scrollTo(0, 0);
         modalRole.innerText = item.role;
         modalTimeline.innerText = item.timeline;
         
-        // Populate bullet points safely
         modalList.innerHTML = "";
         item.achievements.forEach(pt => {
             const li = document.createElement("li");
@@ -147,14 +142,12 @@ window.scrollTo(0, 0);
             modalList.appendChild(li);
         });
 
-        // Append experience letter actions if present
         modalActionArea.innerHTML = "";
         if (item.letterAsset) {
             const btn = document.createElement("button");
             btn.classList.add("view-document-btn");
             btn.innerText = item.letterAsset.label;
             btn.onclick = () => {
-                // Bridge to image viewer modal
                 openCredentialModal(item.letterAsset.path, item.letterAsset.label);
             };
             modalActionArea.appendChild(btn);
@@ -172,21 +165,43 @@ window.scrollTo(0, 0);
         }
     };
 
-    // 5. MAIN SPA ROUTER PANEL INTERACTION ENGINE
-    window.switchSection = function(sectionTargetID) {
-        exitDedicatedPage();
+    // 5. MAIN SPA ROUTER — WITH ANIMATED PANEL TRANSITIONS
+    // Track current section for history
+    let currentSection = 'work';
+
+    window.switchSection = function(sectionTargetID, pushHistory = true) {
+        // Close any open dedicated page and modals
+        _exitDedicatedPageSilent();
         closeDetailsModal();
         closeCredentialModal();
         
-        document.querySelectorAll('.view-panel').forEach(panel => panel.classList.remove('active'));
+        // Animate out current panel, animate in new one
+        const allPanels = document.querySelectorAll('.view-panel');
+        allPanels.forEach(panel => {
+            if (panel.classList.contains('active')) {
+                panel.classList.remove('active');
+            }
+        });
+
         const targetedPanel = document.getElementById(`section-${sectionTargetID}`);
-        if (targetedPanel) targetedPanel.classList.add('active');
+        if (targetedPanel) {
+            // Small delay so CSS animation triggers cleanly on re-display
+            requestAnimationFrame(() => {
+                targetedPanel.classList.add('active');
+            });
+        }
 
         document.querySelectorAll('.nav-route').forEach(route => route.classList.remove('active'));
         const activeRouteButton = document.getElementById(`nav-${sectionTargetID}`);
         if (activeRouteButton) activeRouteButton.classList.add('active');
 
         window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Push to browser history so back button works
+        if (pushHistory && sectionTargetID !== currentSection) {
+            history.pushState({ section: sectionTargetID, page: 'main' }, '', `#${sectionTargetID}`);
+        }
+        currentSection = sectionTargetID;
     };
 
     // 6. MOUSE HOVER RADIAL CARD LIGHTING GRADIENTS
@@ -238,7 +253,7 @@ window.scrollTo(0, 0);
         });
     }
 
-    // 8. DEDICATED VAULT ROUTERS
+    // 8. DEDICATED VAULT ROUTERS — WITH BROWSER HISTORY SUPPORT
     const mainPage = document.getElementById("main-portfolio-page");
     const dedicatedPage = document.getElementById("dedicated-work-page");
     const sectionsContainer = document.getElementById("project-sections-container");
@@ -289,19 +304,96 @@ window.scrollTo(0, 0);
             sectionsContainer.appendChild(clientBlock);
         });
 
+        // Show dedicated page with slide-in animation
         mainPage.classList.add("display-none");
         dedicatedPage.classList.remove("display-none");
+        dedicatedPage.classList.remove("sliding-out");
+        dedicatedPage.classList.add("sliding-in");
         window.scrollTo({ top: 0, behavior: "instant" });
+
+        // Push state so browser back button returns to portfolio home
+        history.pushState({ page: 'dedicated', orgID: orgID, section: currentSection }, '', `#work/${orgID}`);
     };
 
+    // Internal exit — no history manipulation (used by switchSection and popstate)
+    function _exitDedicatedPageSilent() {
+        if(!dedicatedPage || !mainPage) return;
+        if (dedicatedPage.classList.contains("display-none")) return; // already hidden
+        dedicatedPage.classList.add("display-none");
+        dedicatedPage.classList.remove("sliding-in");
+        mainPage.classList.remove("display-none");
+    }
+
+    // Public exit — called by "Back to Home" button, updates history
     window.exitDedicatedPage = function() {
         if(!dedicatedPage || !mainPage) return;
-        dedicatedPage.classList.add("display-none");
-        mainPage.classList.remove("display-none");
-        window.scrollTo({ top: 0, behavior: "instant" });
+
+        // Animate out
+        dedicatedPage.classList.remove("sliding-in");
+        dedicatedPage.classList.add("sliding-out");
+
+        setTimeout(() => {
+            dedicatedPage.classList.add("display-none");
+            dedicatedPage.classList.remove("sliding-out");
+            mainPage.classList.remove("display-none");
+            window.scrollTo({ top: 0, behavior: "instant" });
+        }, 350);
+
+        // Go back in browser history if we came from a push
+        history.back();
     };
 
-    // 9. CREDENTIAL VIEW OVERLAYS MECHANICS
+    // 9. BROWSER BACK / FORWARD BUTTON HANDLER (popstate)
+    // This is the fix for mobile back gesture and laptop back button
+    window.addEventListener('popstate', (event) => {
+        const state = event.state;
+
+        if (!state) {
+            // Fallback: arrived at base state — show work section, hide dedicated page
+            _exitDedicatedPageSilent();
+            _showSectionOnly('work');
+            return;
+        }
+
+        if (state.page === 'dedicated') {
+            // Going forward again into a dedicated page — re-render it without pushing new history
+            const matchingOrg = orgDataStore.find(item => item.id === state.orgID);
+            if (matchingOrg) {
+                // Re-populate without pushing history again
+                document.getElementById("project-page-title").innerText = matchingOrg.organizationName;
+                document.getElementById("project-page-desc").innerText = matchingOrg.shortOverview;
+                document.getElementById("project-page-type").innerText = matchingOrg.skillsScope;
+                mainPage.classList.add("display-none");
+                dedicatedPage.classList.remove("display-none");
+                dedicatedPage.classList.remove("sliding-out");
+                dedicatedPage.classList.add("sliding-in");
+                window.scrollTo({ top: 0, behavior: "instant" });
+            }
+        } else if (state.page === 'main') {
+            // Going back to a main section — hide dedicated page and show correct panel
+            _exitDedicatedPageSilent();
+            _showSectionOnly(state.section || 'work');
+        }
+    });
+
+    // Helper: switch visible panel WITHOUT pushing history (used by popstate handler)
+    function _showSectionOnly(sectionID) {
+        document.querySelectorAll('.view-panel').forEach(panel => panel.classList.remove('active'));
+        const targetedPanel = document.getElementById(`section-${sectionID}`);
+        if (targetedPanel) {
+            requestAnimationFrame(() => targetedPanel.classList.add('active'));
+        }
+        document.querySelectorAll('.nav-route').forEach(route => route.classList.remove('active'));
+        const activeRouteButton = document.getElementById(`nav-${sectionID}`);
+        if (activeRouteButton) activeRouteButton.classList.add('active');
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        currentSection = sectionID;
+    }
+
+    // Set initial history state so popstate works from very first page load
+    history.replaceState({ page: 'main', section: 'work' }, '', '#work');
+
+    // 10. CREDENTIAL VIEW OVERLAYS MECHANICS
     const credModal = document.getElementById("credential-viewer-modal");
     const credImg = document.getElementById("document-modal-img");
     const credTitle = document.getElementById("document-modal-title");
@@ -318,7 +410,6 @@ window.scrollTo(0, 0);
         if (!credModal) return;
         credModal.classList.remove("active");
         
-        // If background experience details window isn't currently open, release viewport scroll locks
         if (!detailsModal.classList.contains("active")) {
             document.body.style.overflow = "";
         }
