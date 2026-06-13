@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
             role: "Graphic Designer, Motion Designer & Video Editor",
             timeline: "APR 2026 - ONGOING",
             achievements: [
-                "Lead end-to-end production of motion graphics and video content.",
-                "Manage complex project timelines and technical pacing adjustments.",
-                "Direct creative visual identity for high-profile promotional campaigns."
+                "Directing creative visual identity for high-profile promotional campaigns.",
+                "Managing complex project timelines and technical pacing adjustments.",
+                "Delivering creative designs and videos for multiple partner businesses, enhancing brand consistency for Miss Universe Nepal, Bennevis, Bruxelles and 361."
             ],
             letterAsset: null
         },
