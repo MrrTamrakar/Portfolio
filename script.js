@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             introText.classList.remove("visible");
             setTimeout(() => {
-                introText.innerText = "Welcome to My Portfolio.";
+                introText.innerText = "Design. Motion. Storytelling.";
                 introText.classList.add("visible");
             }, 400);
         }, 1800);
