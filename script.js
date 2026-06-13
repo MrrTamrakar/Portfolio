@@ -30,8 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo(0, 0);
 
     // FIXED HISTORY STATE
-    history.replaceState({ page: "home" }, "", "");
-
+history.replaceState(
+    {
+        page: "section",
+        id: "work"
+    },
+    "",
+    ""
+);
     // 2. ORBITING BACKGROUND PARTICLES ENGINE
     const canvas = document.getElementById('ambient-canvas');
 
@@ -469,34 +475,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 true
             );
         }
+if (
+    event.state.page === "section" &&
+    event.state.id === "work"
+) {
 
-        if (event.state.page === "home") {
+    exitDedicatedPage();
 
-            exitDedicatedPage();
+    document.querySelectorAll('.view-panel')
+        .forEach(panel =>
+            panel.classList.remove('active')
+        );
 
-            document.querySelectorAll('.view-panel')
-                .forEach(panel =>
-                    panel.classList.remove('active')
-                );
+    const workPanel =
+        document.getElementById("section-work");
 
-            const homePanel =
-                document.getElementById("section-home");
+    if (workPanel) {
+        workPanel.classList.add("active");
+    }
 
-            if (homePanel) {
-                homePanel.classList.add("active");
-            }
+    document.querySelectorAll('.nav-route')
+        .forEach(route =>
+            route.classList.remove('active')
+        );
 
-            document.querySelectorAll('.nav-route')
-                .forEach(route =>
-                    route.classList.remove('active')
-                );
+    const workNav =
+        document.getElementById("nav-work");
 
-            const homeNav =
-                document.getElementById("nav-home");
-
-            if (homeNav) {
-                homeNav.classList.add('active');
-            }
-        }
+    if (workNav) {
+        workNav.classList.add('active');
+    }
+}
     });
 });
