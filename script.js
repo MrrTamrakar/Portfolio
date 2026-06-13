@@ -397,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (ungrouped.length > 0) {
-                html += `<div class="media-subsection">
+                html += `<div class="media-subsection scroll-reveal">
                     <h4 class="media-subsection-title">Graphics</h4>
                     <div class="graphics-grid-layout">
                         ${ungrouped.map(asset => buildGraphicTile(asset)).join("")}
@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             Object.keys(groups).forEach(groupName => {
-                html += `<div class="media-subsection">
+                html += `<div class="media-subsection scroll-reveal">
                     <h4 class="media-subsection-title">${groupName}</h4>
                     <div class="graphics-grid-layout">
                         ${groups[groupName].map(asset => buildGraphicTile(asset)).join("")}
@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ---- VIDEOS ----
         if (section.videos && section.videos.length > 0) {
-            html += `<div class="media-subsection">
+            html += `<div class="media-subsection scroll-reveal">
                 <h4 class="media-subsection-title">Videos</h4>
                 <div class="works-grid-layout">
                     ${section.videos.map(asset => buildVideoTile(asset)).join("")}
@@ -427,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ---- MOTION ----
         if (section.motion && section.motion.length > 0) {
-            html += `<div class="media-subsection">
+            html += `<div class="media-subsection scroll-reveal">
                 <h4 class="media-subsection-title">Motion Graphics</h4>
                 <div class="works-grid-layout">
                     ${section.motion.map(asset => buildVideoTile(asset)).join("")}
@@ -519,6 +519,65 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         setupLazyVideoLoading(sectionsContainer);
+        setupScrollReveal(sectionsContainer);
+        buildDedicatedMiniNav(matchingOrg, sectionsContainer);
+    }
+
+    /**
+     * Populates the sticky mini-nav with jump links to each company/client
+     * block on the dedicated page. Only shown when there's more than one
+     * block (i.e. the org has clients) — otherwise it stays hidden.
+     */
+    function buildDedicatedMiniNav(matchingOrg, container) {
+        const miniNav = document.getElementById("dedicated-mini-nav");
+        if (!miniNav) return;
+        miniNav.innerHTML = "";
+
+        const blocks = container.querySelectorAll(".client-showcase-block");
+        if (blocks.length <= 1) return; // no need for jump nav on single-section pages
+
+        blocks.forEach((block, idx) => {
+            const heading = block.querySelector(".client-block-header h3");
+            if (!heading) return;
+            const label = heading.textContent.trim();
+            const anchorId = `dedicated-block-${idx}`;
+            block.id = anchorId;
+
+            const link = document.createElement("a");
+            link.href = `#${anchorId}`;
+            link.textContent = label;
+            link.onclick = (e) => {
+                e.preventDefault();
+                document.getElementById(anchorId).scrollIntoView({ behavior: "smooth", block: "start" });
+            };
+            miniNav.appendChild(link);
+        });
+    }
+
+    /**
+     * Observes .scroll-reveal elements within the given container and
+     * adds the "revealed" class (triggering a fade-up animation) once
+     * each element scrolls into view.
+     */
+    function setupScrollReveal(container) {
+        const elements = container.querySelectorAll(".scroll-reveal");
+        if (!elements.length) return;
+
+        if (!("IntersectionObserver" in window)) {
+            elements.forEach(el => el.classList.add("revealed"));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("revealed");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
+
+        elements.forEach(el => observer.observe(el));
     }
 
     /**
@@ -734,5 +793,35 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // =========================================================================
+    // EXPERIENCE TIMELINE — draw-in line + staggered node fade-in on scroll
+    // =========================================================================
+    (function initTimelineReveal() {
+        const tracks = document.querySelectorAll(".experience-vertical-track");
+        if (!tracks.length || !("IntersectionObserver" in window)) {
+            tracks.forEach(track => {
+                track.classList.add("line-revealed");
+                track.querySelectorAll(".timeline-node").forEach(n => n.classList.add("node-revealed"));
+            });
+            return;
+        }
+
+        const trackObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const track = entry.target;
+                    track.classList.add("line-revealed");
+                    const nodes = track.querySelectorAll(".timeline-node");
+                    nodes.forEach((node, i) => {
+                        setTimeout(() => node.classList.add("node-revealed"), i * 120);
+                    });
+                    obs.unobserve(track);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        tracks.forEach(track => trackObserver.observe(track));
+    })();
 
 });
