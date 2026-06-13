@@ -486,6 +486,87 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 .vault-item-meta h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
 .vault-item-meta p { font-size: 0.9rem; color: var(--text-muted); }
 
+/* ==========================================================================
+   8B. MEDIA SUBSECTIONS — Graphics / Videos / Motion groupings within
+       a company or client showcase block
+   ========================================================================== */
+.media-subsection { margin-top: 2.5rem; }
+.media-subsection:first-of-type { margin-top: 1.5rem; }
+.media-subsection-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Compact multi-column grid for graphic/image assets.
+   Cards size to their natural aspect ratio rather than being cropped,
+   so portrait social-media designs remain fully visible. */
+.graphics-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+}
+
+.graphic-item-node {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.graphic-item-node:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 122, 255, 0.35);
+}
+
+.graphic-media-box {
+    width: 100%;
+    background: #0c0e11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.graphic-media-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.graphic-item-meta { padding: 0.75rem 0.9rem; }
+.graphic-item-meta p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fallback icon shown when a media file fails to load */
+.media-fallback {
+    width: 100%;
+    height: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-dark);
+    background: #0c0e11;
+}
+
+/* Distinguish the company-level section slightly from client blocks */
+.company-showcase-block { padding-bottom: 3rem; border-bottom: 1px solid var(--border-color); margin-bottom: 3rem; }
+
 /* Custom Logo Styling */
 .brand-signature-logo {
     display: inline-flex;
@@ -519,6 +600,7 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
 @media (max-width: 850px) {
     .about-grid-layout, .contact-grid-wrapper { grid-template-columns: 1fr; gap: 3rem; }
     .works-grid-layout { grid-template-columns: 1fr; }
+    .graphics-grid-layout { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
 }
 
 /* Mobile navbar fix — solid surface background so it separates from page */
@@ -621,6 +703,7 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     .nav-logo-img {
         height: 22px;
     }
+    .graphics-grid-layout { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
 }
 
 

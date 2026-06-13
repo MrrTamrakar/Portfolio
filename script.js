@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const experienceDetailsData = {
         kaji: {
             title: "Kaji Production",
-            role: "Lead Motion Designer & Video Editor",
+            role: "Graphic Designer, Motion Designer & Video Editor",
             timeline: "APR 2026 - ONGOING",
             achievements: [
                 "Lead end-to-end production of motion graphics and video content.",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Edited promotional videos using Adobe Premiere Pro and After Effects.",
                 "Delivered creative solutions for multiple partner businesses, enhancing brand consistency for Glorious Nepal Consultancy and driving a 15% booking increase for AT Travels & Tours."
             ],
-            letterAsset: { path: "assets/craftalaya_letter.jpg", label: "View Craftalaya Tech Experience Letter" }
+            letterAsset: { path: "assets/craftalaya_letter.jpg", label: "View Craftalaya Experience Letter" }
         },
         kashyap: {
             title: "Kashyap Advisors",
@@ -372,6 +372,133 @@ document.addEventListener("DOMContentLoaded", () => {
     const dedicatedPage = document.getElementById("dedicated-work-page");
     const sectionsContainer = document.getElementById("project-sections-container");
 
+    /**
+     * Builds the HTML for one "media block" — graphics, videos, or motion —
+     * for a given section (company-level or client-level).
+     * Graphics support an optional "group" field (e.g. "Digital Designs",
+     * "Printing Materials") which renders as its own labeled sub-grid.
+     */
+    function buildMediaBlocksHTML(section) {
+        let html = "";
+
+        // ---- GRAPHICS (with optional grouping) ----
+        if (section.graphics && section.graphics.length > 0) {
+            const groups = {};
+            const ungrouped = [];
+
+            section.graphics.forEach(asset => {
+                if (asset.group) {
+                    if (!groups[asset.group]) groups[asset.group] = [];
+                    groups[asset.group].push(asset);
+                } else {
+                    ungrouped.push(asset);
+                }
+            });
+
+            if (ungrouped.length > 0) {
+                html += `<div class="media-subsection">
+                    <h4 class="media-subsection-title">Graphics</h4>
+                    <div class="graphics-grid-layout">
+                        ${ungrouped.map(asset => buildGraphicTile(asset)).join("")}
+                    </div>
+                </div>`;
+            }
+
+            Object.keys(groups).forEach(groupName => {
+                html += `<div class="media-subsection">
+                    <h4 class="media-subsection-title">${groupName}</h4>
+                    <div class="graphics-grid-layout">
+                        ${groups[groupName].map(asset => buildGraphicTile(asset)).join("")}
+                    </div>
+                </div>`;
+            });
+        }
+
+        // ---- VIDEOS ----
+        if (section.videos && section.videos.length > 0) {
+            html += `<div class="media-subsection">
+                <h4 class="media-subsection-title">Videos</h4>
+                <div class="works-grid-layout">
+                    ${section.videos.map(asset => buildVideoTile(asset)).join("")}
+                </div>
+            </div>`;
+        }
+
+        // ---- MOTION ----
+        if (section.motion && section.motion.length > 0) {
+            html += `<div class="media-subsection">
+                <h4 class="media-subsection-title">Motion Graphics</h4>
+                <div class="works-grid-layout">
+                    ${section.motion.map(asset => buildVideoTile(asset)).join("")}
+                </div>
+            </div>`;
+        }
+
+        return html;
+    }
+
+    function buildGraphicTile(asset) {
+        return `
+            <div class="graphic-item-node">
+                <div class="graphic-media-box">
+                    <img src="${asset.srcID}" alt="${asset.title}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎨</div>'">
+                </div>
+                <div class="graphic-item-meta"><p>${asset.title}</p></div>
+            </div>
+        `;
+    }
+
+    function buildVideoTile(asset) {
+        return `
+            <div class="vault-item-node">
+                <div class="vault-media-box">
+                    <video src="${asset.srcID}" controls preload="metadata" playsinline onerror="this.parentNode.innerHTML='<div class=\\'media-fallback\\'>🎬</div>'"></video>
+                </div>
+                <div class="vault-item-meta"><h4>${asset.title}</h4></div>
+            </div>
+        `;
+    }
+
+    /**
+     * Renders the full content (company section + client subsections)
+     * into #project-sections-container for the given org.
+     */
+    function renderDedicatedPageContent(matchingOrg) {
+        if (!sectionsContainer) return;
+        sectionsContainer.innerHTML = "";
+
+        // Company-level section
+        if (matchingOrg.companySection) {
+            const cs = matchingOrg.companySection;
+            const block = document.createElement("div");
+            block.classList.add("client-showcase-block", "company-showcase-block");
+            block.innerHTML = `
+                <div class="client-block-header">
+                    <h3>${cs.name}</h3>
+                    <p>${cs.workTypeTag}</p>
+                </div>
+                ${buildMediaBlocksHTML(cs)}
+            `;
+            sectionsContainer.appendChild(block);
+        }
+
+        // Client subsections
+        if (matchingOrg.clients && matchingOrg.clients.length > 0) {
+            matchingOrg.clients.forEach(client => {
+                const block = document.createElement("div");
+                block.classList.add("client-showcase-block");
+                block.innerHTML = `
+                    <div class="client-block-header">
+                        <h3>${client.name}</h3>
+                        <p>${client.workTypeTag}</p>
+                    </div>
+                    ${buildMediaBlocksHTML(client)}
+                `;
+                sectionsContainer.appendChild(block);
+            });
+        }
+    }
+
     window.navigateToDedicatedPage = function(orgID) {
         const matchingOrg = orgDataStore.find(item => item.id === orgID);
         if (!matchingOrg || !dedicatedPage || !mainPage) return;
@@ -380,43 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("project-page-desc").innerText = matchingOrg.shortOverview;
         document.getElementById("project-page-type").innerText = matchingOrg.skillsScope;
 
-        sectionsContainer.innerHTML = "";
-
-        matchingOrg.sections.forEach(sec => {
-            const clientBlock = document.createElement("div");
-            clientBlock.classList.add("client-showcase-block");
-
-            let gridItemsHTML = "";
-            sec.assets.forEach(asset => {
-                let mediaEmbed = "";
-                if (asset.type === "youtube") {
-                    mediaEmbed = `<iframe src="https://www.youtube.com/embed/${asset.srcID}" allowfullscreen></iframe>`;
-                } else {
-                    mediaEmbed = `<img src="${asset.srcID}" alt="${asset.title}" onerror="this.parentNode.innerHTML='<div style=\\'padding:4rem;text-align:center;font-size:2rem;\\'>🎨</div>'">`;
-                }
-
-                gridItemsHTML += `
-                    <div class="vault-item-node">
-                        <div class="vault-media-box">${mediaEmbed}</div>
-                        <div class="vault-item-meta">
-                            <h4>${asset.title}</h4>
-                            <p>${asset.metaDescription}</p>
-                        </div>
-                    </div>
-                `;
-            });
-
-            clientBlock.innerHTML = `
-                <div class="client-block-header">
-                    <h3>${sec.name}</h3>
-                    <p>${sec.workTypeTag}</p>
-                </div>
-                <div class="works-grid-layout">
-                    ${gridItemsHTML}
-                </div>
-            `;
-            sectionsContainer.appendChild(clientBlock);
-        });
+        renderDedicatedPageContent(matchingOrg);
 
         mainPage.classList.add("display-none");
         dedicatedPage.classList.remove("display-none");
@@ -469,6 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("project-page-title").innerText = matchingOrg.organizationName;
                 document.getElementById("project-page-desc").innerText = matchingOrg.shortOverview;
                 document.getElementById("project-page-type").innerText = matchingOrg.skillsScope;
+                renderDedicatedPageContent(matchingOrg);
                 mainPage.classList.add("display-none");
                 dedicatedPage.classList.remove("display-none");
                 dedicatedPage.classList.remove("sliding-out");

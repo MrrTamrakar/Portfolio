@@ -4,85 +4,126 @@
     "organizationName": "Dipankar Tamrakar",
     "skillsScope": "Personal Creative Portfolio",
     "shortOverview": "A curated showcase of independent design experiments, motion graphics reels, and branding concepts created outside of client work.",
-    "sections": [
-      {
-        "name": "Motion Graphics Reel",
-        "workTypeTag": "Self-Initiated Project",
-        "assets": [
-          {
-            "title": "Personal Motion Reel",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "A compilation of original motion graphics and animation experiments showcasing transitions, typography, and visual storytelling."
-          }
-        ]
-      },
-      {
-        "name": "Brand Identity Concepts",
-        "workTypeTag": "Design Exploration",
-        "assets": [
-          {
-            "title": "Brand Concept Mockup",
-            "type": "image",
-            "srcID": "assets/work/personal-brand-sample.jpg",
-            "metaDescription": "Conceptual branding and visual identity exploration including logo systems and color palettes."
-          }
-        ]
-      },
-      {
-        "name": "Social Media Design Templates",
-        "workTypeTag": "Creative Practice",
-        "assets": [
-          {
-            "title": "Social Media Layout Set",
-            "type": "image",
-            "srcID": "assets/work/personal-social-sample.jpg",
-            "metaDescription": "A set of original social media post designs exploring typography, color, and layout composition."
-          }
-        ]
-      }
-    ]
+    "companySection": {
+      "name": "My Creativity",
+      "workTypeTag": "Self-Initiated Projects",
+      "graphics": [
+        { "title": "Creative Design 1", "srcID": "Portfolio/Img/Mine/Mine1.png" },
+        { "title": "Creative Design 2", "srcID": "Portfolio/Img/Mine/Mine2.png" },
+        { "title": "Creative Design 3", "srcID": "Portfolio/Img/Mine/Mine3.png" },
+        { "title": "Creative Design 4", "srcID": "Portfolio/Img/Mine/Mine4.png" },
+        { "title": "Creative Design 5", "srcID": "Portfolio/Img/Mine/Mine5.png" },
+        { "title": "Creative Design 6", "srcID": "Portfolio/Img/Mine/Mine6.png" },
+        { "title": "Creative Design 7", "srcID": "Portfolio/Img/Mine/Mine7.png" },
+        { "title": "Creative Design 8", "srcID": "Portfolio/Img/Mine/Mine8.png" },
+        { "title": "Creative Design 9", "srcID": "Portfolio/Img/Mine/Mine9.png" },
+        { "title": "Creative Design 10", "srcID": "Portfolio/Img/Mine/Mine10.png" },
+        { "title": "Creative Design 11", "srcID": "Portfolio/Img/Mine/Mine11.png" },
+        { "title": "Creative Design 12", "srcID": "Portfolio/Img/Mine/Mine12.png" },
+        { "title": "Creative Design 13", "srcID": "Portfolio/Img/Mine/Mine13.png" },
+        { "title": "Creative Design 14", "srcID": "Portfolio/Img/Mine/Mine14.png" },
+        { "title": "Creative Design 15", "srcID": "Portfolio/Img/Mine/Mine15.png" },
+        { "title": "Creative Design 16", "srcID": "Portfolio/Img/Mine/Mine16.png" }
+      ],
+      "videos": [],
+      "motion": [
+        { "title": "Motion Reel 1", "srcID": "Portfolio/Videos/Mycreativity.mp4" },
+        { "title": "Motion Reel 2", "srcID": "Portfolio/Videos/Mycreativity1.mp4" },
+        { "title": "Motion Reel 3", "srcID": "Portfolio/Videos/Mycreativity2.mp4" },
+        { "title": "Motion Reel 4", "srcID": "Portfolio/Videos/Mycreativity3.mp4" },
+        { "title": "Motion Reel 5", "srcID": "Portfolio/Videos/Mycreativity4.mp4" },
+        { "title": "Motion Reel 6", "srcID": "Portfolio/Videos/Mycreativity5.mp4" },
+        { "title": "Motion Reel 7", "srcID": "Portfolio/Videos/Mycreativity6.mp4" }
+      ]
+    },
+    "clients": []
   },
   {
     "id": "kaji",
     "organizationName": "Kaji Production",
-    "skillsScope": "Lead Motion Designer & Video Editor",
+    "skillsScope": "Graphic Designer, Motion Designer & Video Editor",
     "shortOverview": "Editing high-quality videos, managing motion graphics timelines, and designing promotional campaign visuals.",
-    "sections": [
+    "companySection": {
+      "name": "Kaji Production",
+      "workTypeTag": "Company Work",
+      "graphics": [
+        { "title": "Kaji Design 1", "srcID": "Portfolio/Img/Kaji/Kaji1.png" },
+        { "title": "Kaji Design 2", "srcID": "Portfolio/Img/Kaji/Kaji2.png" }
+      ],
+      "videos": [
+        { "title": "Kaji Production Reel", "srcID": "Portfolio/Videos/Kaji.mp4" }
+      ],
+      "motion": []
+    },
+    "clients": [
       {
         "name": "Bennevis",
         "workTypeTag": "Client Campaign",
-        "assets": [
-          {
-            "title": "Bennevis Promotional Video",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "Video edit, pacing adjustments, and custom color grading."
-          }
+        "graphics": [
+          { "title": "Bennevis Design 1", "srcID": "Portfolio/Img/Kaji/Bennevis1.png" },
+          { "title": "Bennevis Design 2", "srcID": "Portfolio/Img/Kaji/Bennevis2.png" },
+          { "title": "Bennevis Design 3", "srcID": "Portfolio/Img/Kaji/Bennevis3.png" },
+          { "title": "Bennevis Design 4", "srcID": "Portfolio/Img/Kaji/Bennevis4.png" },
+          { "title": "Bennevis Design 5", "srcID": "Portfolio/Img/Kaji/Bennevis5.png" },
+          { "title": "Bennevis Design 6", "srcID": "Portfolio/Img/Kaji/Bennevis6.png" }
+        ],
+        "videos": [],
+        "motion": [
+          { "title": "Bennevis Motion Promo", "srcID": "Portfolio/Videos/Bennevis.mp4" }
         ]
       },
       {
         "name": "Bruxelles",
         "workTypeTag": "Client Campaign",
-        "assets": [
-          {
-            "title": "Bruxelles Visual Asset",
-            "type": "image",
-            "srcID": "assets/work/bruxelles-sample.jpg",
-            "metaDescription": "Motion graphics layouts and promotional assets."
-          }
+        "graphics": [
+          { "title": "Bruxelles Design 1", "srcID": "Portfolio/Img/Kaji/Bruxelles1.png" },
+          { "title": "Bruxelles Design 2", "srcID": "Portfolio/Img/Kaji/Bruxelles2.png" },
+          { "title": "Bruxelles Design 3", "srcID": "Portfolio/Img/Kaji/Bruxelles3.png" },
+          { "title": "Bruxelles Design 4", "srcID": "Portfolio/Img/Kaji/Bruxelles4.png" },
+          { "title": "Bruxelles Design 5", "srcID": "Portfolio/Img/Kaji/Bruxelles5.png" },
+          { "title": "Bruxelles Design 6", "srcID": "Portfolio/Img/Kaji/Bruxelles6.png" },
+          { "title": "Bruxelles Design 7", "srcID": "Portfolio/Img/Kaji/Bruxelles7.png" },
+          { "title": "Bruxelles Design 8", "srcID": "Portfolio/Img/Kaji/Bruxelles8.png" },
+          { "title": "Bruxelles Design 9", "srcID": "Portfolio/Img/Kaji/Bruxelles9.png" },
+          { "title": "Bruxelles Design 10", "srcID": "Portfolio/Img/Kaji/Bruxelles10.png" },
+          { "title": "Bruxelles Design 11", "srcID": "Portfolio/Img/Kaji/Bruxelles11.png" },
+          { "title": "Bruxelles Design 12", "srcID": "Portfolio/Img/Kaji/Bruxelles12.png" }
+        ],
+        "videos": [
+          { "title": "Bruxelles Promo Video 1", "srcID": "Portfolio/Videos/Bruxelles.mp4" },
+          { "title": "Bruxelles Promo Video 2", "srcID": "Portfolio/Videos/Bruxelles1.mp4" }
+        ],
+        "motion": [
+          { "title": "Bruxelles Motion Edit", "srcID": "Portfolio/Videos/Bruxelles2.mp4" }
         ]
       },
       {
         "name": "361",
         "workTypeTag": "Client Campaign",
-        "assets": [
-          {
-            "title": "361 Brand Reel",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "Dynamic transitions, clip sequencing, and audio design sync."
-          }
+        "graphics": [
+          { "title": "361 Design A", "srcID": "Portfolio/Img/Kaji/361A.png" },
+          { "title": "361 Design B", "srcID": "Portfolio/Img/Kaji/361B.png" },
+          { "title": "361 Design C", "srcID": "Portfolio/Img/Kaji/361C.png" },
+          { "title": "361 Design D", "srcID": "Portfolio/Img/Kaji/361D.png" },
+          { "title": "361 Design E", "srcID": "Portfolio/Img/Kaji/361E.png" },
+          { "title": "361 Design F", "srcID": "Portfolio/Img/Kaji/361F.png" },
+          { "title": "361 Print Design", "srcID": "Portfolio/Img/Kaji/361-print.png" }
+        ],
+        "videos": [],
+        "motion": []
+      },
+      {
+        "name": "Miss Universe",
+        "workTypeTag": "Client Campaign",
+        "graphics": [
+          { "title": "Miss Universe Design 1", "srcID": "Portfolio/Img/Kaji/MU1.png" },
+          { "title": "Miss Universe Design 2", "srcID": "Portfolio/Img/Kaji/MU2.png" },
+          { "title": "Miss Universe Design 3", "srcID": "Portfolio/Img/Kaji/MU3.png" }
+        ],
+        "videos": [],
+        "motion": [
+          { "title": "Miss Universe Motion 1", "srcID": "Portfolio/Videos/MissUniverse.mp4" },
+          { "title": "Miss Universe Motion 2", "srcID": "Portfolio/Videos/MissUniverse1.mp4" }
         ]
       }
     ]
@@ -92,94 +133,161 @@
     "organizationName": "Kashyap Advisors",
     "skillsScope": "Graphic Design & Video Editing",
     "shortOverview": "Formulating structured corporate layouts, presentations, and digital content channels.",
-    "sections": [
-      {
-        "name": "Corporate Strategy Visuals",
-        "workTypeTag": "Internal Presentation Assets",
-        "assets": [
-          {
-            "title": "Investor Deck Presentation",
-            "type": "image",
-            "srcID": "assets/work/kashyap-deck.jpg",
-            "metaDescription": "Clean vector infographics, slide layouts, and typography formatting."
-          }
-        ]
-      }
-    ]
+    "companySection": {
+      "name": "Kashyap Advisors",
+      "workTypeTag": "Digital & Print Design",
+      "graphics": [
+        { "title": "Digital Design 1", "srcID": "Portfolio/Img/Kashyap/Kashyap1.png", "group": "Digital Designs" },
+        { "title": "Digital Design 2", "srcID": "Portfolio/Img/Kashyap/Kashyap2.png", "group": "Digital Designs" },
+        { "title": "Digital Design 3", "srcID": "Portfolio/Img/Kashyap/Kashyap3.png", "group": "Digital Designs" },
+        { "title": "Digital Design 4", "srcID": "Portfolio/Img/Kashyap/Kashyap4.png", "group": "Digital Designs" },
+        { "title": "Digital Design 5", "srcID": "Portfolio/Img/Kashyap/Kashyap5.png", "group": "Digital Designs" },
+        { "title": "Digital Design 6", "srcID": "Portfolio/Img/Kashyap/Kashyap6.png", "group": "Digital Designs" },
+        { "title": "Digital Design 7", "srcID": "Portfolio/Img/Kashyap/Kashyap7.png", "group": "Digital Designs" },
+        { "title": "Digital Design 8", "srcID": "Portfolio/Img/Kashyap/Kashyap8.png", "group": "Digital Designs" },
+        { "title": "Digital Design 9", "srcID": "Portfolio/Img/Kashyap/Kashyap9.png", "group": "Digital Designs" },
+        { "title": "Dang Print Design", "srcID": "Portfolio/Img/Kashyap/Printing/Dang.png", "group": "Printing Materials" },
+        { "title": "Grand Opening Lumbini", "srcID": "Portfolio/Img/Kashyap/Printing/Grand Opening-Lumbini.png", "group": "Printing Materials" },
+        { "title": "Grand Opening Lumbini 1", "srcID": "Portfolio/Img/Kashyap/Printing/Grand Opening-Lumbini1.png", "group": "Printing Materials" },
+        { "title": "Print Design A", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapA.png", "group": "Printing Materials" },
+        { "title": "Print Design A-1", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapA-1.png", "group": "Printing Materials" },
+        { "title": "Print Design B", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapB.png", "group": "Printing Materials" },
+        { "title": "Print Design C", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapC.png", "group": "Printing Materials" },
+        { "title": "Print Design D", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapD.png", "group": "Printing Materials" },
+        { "title": "Print Design E", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapE.png", "group": "Printing Materials" },
+        { "title": "Print Design F", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapF.png", "group": "Printing Materials" },
+        { "title": "Print Design G", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapG.png", "group": "Printing Materials" },
+        { "title": "Print Design G-1", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapG-1.png", "group": "Printing Materials" },
+        { "title": "Print Design H", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapH.png", "group": "Printing Materials" },
+        { "title": "Print Design I", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapI.png", "group": "Printing Materials" },
+        { "title": "Print Design J", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapJ.png", "group": "Printing Materials" },
+        { "title": "Print Design J-1", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapJ-1.png", "group": "Printing Materials" },
+        { "title": "Print Design K", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapK.png", "group": "Printing Materials" },
+        { "title": "Print Design L", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapL.png", "group": "Printing Materials" },
+        { "title": "Print Design L-1", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapL-1.png", "group": "Printing Materials" },
+        { "title": "Print Design L-2", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapL-2.png", "group": "Printing Materials" },
+        { "title": "Print Design L-3", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapL-3.png", "group": "Printing Materials" },
+        { "title": "Print Design M", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapM.png", "group": "Printing Materials" },
+        { "title": "Print Design M-1", "srcID": "Portfolio/Img/Kashyap/Printing/KashyapM-1.png", "group": "Printing Materials" },
+        { "title": "Tulsipur Print Design", "srcID": "Portfolio/Img/Kashyap/Printing/Tulsipur.png", "group": "Printing Materials" }
+      ],
+      "videos": [
+        { "title": "Kashyap Video 1", "srcID": "Portfolio/Videos/Kashyap.mp4" },
+        { "title": "Kashyap Video 2", "srcID": "Portfolio/Videos/Kashyap1.mp4" },
+        { "title": "Kashyap Video 3", "srcID": "Portfolio/Videos/Kashyap2.mp4" },
+        { "title": "Kashyap Video 4", "srcID": "Portfolio/Videos/Kashyap3.mp4" },
+        { "title": "Kashyap Video 5", "srcID": "Portfolio/Videos/Kashyap4.mp4" },
+        { "title": "Kashyap Video 6", "srcID": "Portfolio/Videos/Kashyap5.mp4" },
+        { "title": "Kashyap Video 7", "srcID": "Portfolio/Videos/Kashyap6.mp4" },
+        { "title": "Kashyap Video 8", "srcID": "Portfolio/Videos/Kashyap7.mp4" },
+        { "title": "Kashyap Video 9", "srcID": "Portfolio/Videos/Kashyap8.mp4" }
+      ],
+      "motion": []
+    },
+    "clients": []
   },
   {
     "id": "paila",
     "organizationName": "Paila Education Consultancy",
     "skillsScope": "Video Editing & Graphic Design",
     "shortOverview": "Producing easy-to-understand educational explainers and high-retention layout assets.",
-    "sections": [
-      {
-        "name": "Student Explainer Content",
-        "workTypeTag": "Video Campaigns",
-        "assets": [
-          {
-            "title": "Educational Explainer Reel",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "Informational layout editing designed to outline step-by-step program details."
-          }
-        ]
-      }
-    ]
+    "companySection": {
+      "name": "Paila Education Consultancy",
+      "workTypeTag": "Educational Campaign Design",
+      "graphics": [
+        { "title": "Paila Design 1", "srcID": "Portfolio/Img/Paila/Paila1.png" },
+        { "title": "Paila Design 2", "srcID": "Portfolio/Img/Paila/Paila2.png" },
+        { "title": "Paila Design 3", "srcID": "Portfolio/Img/Paila/Paila3.png" },
+        { "title": "Paila Design 4", "srcID": "Portfolio/Img/Paila/Paila4.png" },
+        { "title": "Paila Design 5", "srcID": "Portfolio/Img/Paila/Paila5.png" },
+        { "title": "Paila Design 6", "srcID": "Portfolio/Img/Paila/Paila6.png" },
+        { "title": "Paila Design 7", "srcID": "Portfolio/Img/Paila/Paila7.png" },
+        { "title": "Paila Design 8", "srcID": "Portfolio/Img/Paila/Paila8.png" },
+        { "title": "Paila Design 9", "srcID": "Portfolio/Img/Paila/Paila9.png" },
+        { "title": "Paila Design 10", "srcID": "Portfolio/Img/Paila/Paila10.png" }
+      ],
+      "videos": [
+        { "title": "Paila Video 1", "srcID": "Portfolio/Videos/Paila.mp4" },
+        { "title": "Paila Video 2", "srcID": "Portfolio/Videos/Paila1.mp4" },
+        { "title": "Paila Video 3", "srcID": "Portfolio/Videos/Paila2.mp4" },
+        { "title": "Paila Video 4", "srcID": "Portfolio/Videos/Paila3.mp4" },
+        { "title": "Paila Video 5", "srcID": "Portfolio/Videos/Paila4.mp4" }
+      ],
+      "motion": []
+    },
+    "clients": []
   },
   {
     "id": "craftalaya",
-    "organizationName": "Craftalaya Tech",
+    "organizationName": "Craftalaya",
     "skillsScope": "Video Editing & Graphic Design",
     "shortOverview": "Engineering targeted promotional videos and commercial assets to scale brand reach.",
-    "sections": [
+    "companySection": {
+      "name": "Craftalaya",
+      "workTypeTag": "Company Work",
+      "graphics": [
+        { "title": "Craftalaya Design 1", "srcID": "Portfolio/Img/Craftalaya/Craftalaya1.png" },
+        { "title": "Craftalaya Design 2", "srcID": "Portfolio/Img/Craftalaya/Craftalaya2.png" },
+        { "title": "Craftalaya Design 3", "srcID": "Portfolio/Img/Craftalaya/Craftalaya3.png" },
+        { "title": "Craftalaya Design 4", "srcID": "Portfolio/Img/Craftalaya/Craftalaya4.png" },
+        { "title": "Craftalaya Design 5", "srcID": "Portfolio/Img/Craftalaya/Craftalaya5.png" },
+        { "title": "Craftalaya Design 6", "srcID": "Portfolio/Img/Craftalaya/Craftalaya6.png" }
+      ],
+      "videos": [
+        { "title": "Craftalaya Promo Video 1", "srcID": "Portfolio/Videos/Craftalaya.mp4" },
+        { "title": "Craftalaya Promo Video 2", "srcID": "Portfolio/Videos/Craftalaya1.mp4" }
+      ],
+      "motion": []
+    },
+    "clients": [
       {
         "name": "Glorious Nepal Educational Consultancy",
         "workTypeTag": "Agency Client",
-        "assets": [
-          {
-            "title": "Consultancy Marketing Reel",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "High-engagement social media explainer and informative layout graphics."
-          }
-        ]
+        "graphics": [
+          { "title": "Glorious Design 1", "srcID": "Portfolio/Img/Craftalaya/Glorious1.png" },
+          { "title": "Glorious Design 2", "srcID": "Portfolio/Img/Craftalaya/Glorious2.png" },
+          { "title": "Glorious Design 3", "srcID": "Portfolio/Img/Craftalaya/Glorious3.png" },
+          { "title": "Glorious Design 4", "srcID": "Portfolio/Img/Craftalaya/Glorious4.png" },
+          { "title": "Glorious Design 5", "srcID": "Portfolio/Img/Craftalaya/Glorious5.png" },
+          { "title": "Glorious Design 6", "srcID": "Portfolio/Img/Craftalaya/Glorious6.png" },
+          { "title": "Glorious Design 7", "srcID": "Portfolio/Img/Craftalaya/Glorious7.png" }
+        ],
+        "videos": [],
+        "motion": []
       },
       {
         "name": "Smart Holidays",
         "workTypeTag": "Travel Advertisement Campaign",
-        "assets": [
-          {
-            "title": "Smart Holidays Travel Promo",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "Cinematic sequence layouts, pacing edits, and color grading matching."
-          }
-        ]
+        "graphics": [
+          { "title": "Smart Holidays Design 1", "srcID": "Portfolio/Img/Craftalaya/Travel1.png" },
+          { "title": "Smart Holidays Design 2", "srcID": "Portfolio/Img/Craftalaya/Travel2.png" },
+          { "title": "Smart Holidays Design 3", "srcID": "Portfolio/Img/Craftalaya/Travel3.png" },
+          { "title": "Smart Holidays Design 4", "srcID": "Portfolio/Img/Craftalaya/Travel5.png" },
+          { "title": "Smart Holidays Design 5", "srcID": "Portfolio/Img/Craftalaya/Travel8.png" },
+          { "title": "Smart Holidays Design 6", "srcID": "Portfolio/Img/Craftalaya/Travel9.png" }
+        ],
+        "videos": [],
+        "motion": []
       },
       {
         "name": "AT Travels and Tours",
         "workTypeTag": "Travel Advertisement Campaign",
-        "assets": [
-          {
-            "title": "AT Travels Campaign Video",
-            "type": "youtube",
-            "srcID": "dQw4w9WgXcQ",
-            "metaDescription": "Social media video ad targeted for high-retention audience hook points."
-          }
-        ]
+        "graphics": [
+          { "title": "AT Travels Design 1", "srcID": "Portfolio/Img/Craftalaya/Travel7.png" },
+          { "title": "AT Travels Design 2", "srcID": "Portfolio/Img/Craftalaya/Travel10.png" }
+        ],
+        "videos": [],
+        "motion": []
       },
       {
         "name": "New Journey Travels and Tourism LLC",
         "workTypeTag": "Travel Advertisement Campaign",
-        "assets": [
-          {
-            "title": "New Journey Commercial Asset",
-            "type": "image",
-            "srcID": "assets/work/new-journey-sample.jpg",
-            "metaDescription": "Promotional banners and social media layouts optimized for brand distribution."
-          }
-        ]
+        "graphics": [
+          { "title": "New Journey Design 1", "srcID": "Portfolio/Img/Craftalaya/Travel4.png" },
+          { "title": "New Journey Design 2", "srcID": "Portfolio/Img/Craftalaya/Travel6.png" }
+        ],
+        "videos": [],
+        "motion": []
       }
     ]
   },
@@ -188,19 +296,38 @@
     "organizationName": "Sprachschule Kathmandu",
     "skillsScope": "Motion Graphics & Graphic Design",
     "shortOverview": "Coordinating digital layout media packages, promotional assets, and design streams.",
-    "sections": [
-      {
-        "name": "Language Program Marketing",
-        "workTypeTag": "Social Content Materials",
-        "assets": [
-          {
-            "title": "Course Promotion Banner",
-            "type": "image",
-            "srcID": "assets/work/sprachschule-banner.jpg",
-            "metaDescription": "Clean typography layout and vector graphic design configurations."
-          }
-        ]
-      }
-    ]
+    "companySection": {
+      "name": "Sprachschule Kathmandu",
+      "workTypeTag": "Digital & Print Design",
+      "graphics": [
+        { "title": "Digital Design 1", "srcID": "Portfolio/Img/Sprachschule/Sprachschule1.png", "group": "Digital Designs" },
+        { "title": "Digital Design 2", "srcID": "Portfolio/Img/Sprachschule/Sprachschule2.png", "group": "Digital Designs" },
+        { "title": "Digital Design 3", "srcID": "Portfolio/Img/Sprachschule/Sprachschule3.png", "group": "Digital Designs" },
+        { "title": "Digital Design 4", "srcID": "Portfolio/Img/Sprachschule/Sprachschule4.png", "group": "Digital Designs" },
+        { "title": "Digital Design 5", "srcID": "Portfolio/Img/Sprachschule/Sprachschule5.png", "group": "Digital Designs" },
+        { "title": "Digital Design 6", "srcID": "Portfolio/Img/Sprachschule/Sprachschule6.png", "group": "Digital Designs" },
+        { "title": "Digital Design 7", "srcID": "Portfolio/Img/Sprachschule/Sprachschule7.png", "group": "Digital Designs" },
+        { "title": "Digital Design 8", "srcID": "Portfolio/Img/Sprachschule/Sprachschule8.png", "group": "Digital Designs" },
+        { "title": "Print Design A", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleA.png", "group": "Printing Materials" },
+        { "title": "Print Design B", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleB.png", "group": "Printing Materials" },
+        { "title": "Print Design C", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleC.png", "group": "Printing Materials" },
+        { "title": "Print Design D", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleD.png", "group": "Printing Materials" },
+        { "title": "Print Design E", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleE.png", "group": "Printing Materials" },
+        { "title": "Print Design F", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleF.png", "group": "Printing Materials" },
+        { "title": "Print Design G", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleG.png", "group": "Printing Materials" },
+        { "title": "Print Design H", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleH.png", "group": "Printing Materials" },
+        { "title": "Print Design I", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleI.png", "group": "Printing Materials" },
+        { "title": "Print Design J", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleJ.png", "group": "Printing Materials" },
+        { "title": "Print Design K", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleK.png", "group": "Printing Materials" },
+        { "title": "Print Design L", "srcID": "Portfolio/Img/Sprachschule/Printing/SprachschuleL.png", "group": "Printing Materials" }
+      ],
+      "videos": [],
+      "motion": [
+        { "title": "Sprachschule Logo Reveal", "srcID": "Portfolio/Videos/sprachschule-logo-reveal.mp4" },
+        { "title": "Sprachschule Motion 1", "srcID": "Portfolio/Videos/Sprachschule-motion.mp4" },
+        { "title": "Sprachschule Motion 2", "srcID": "Portfolio/Videos/Sprrachschule-motionn.mp4" }
+      ]
+    },
+    "clients": []
   }
 ]
