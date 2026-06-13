@@ -365,21 +365,37 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     .top-navbar,
     .navbar,
     nav {
-        padding: 14px 16px !important;
+
+        padding: 14px 18px !important;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 12px;
     }
 
     .nav-links,
     .nav-menu {
-        gap: 14px !important;
+
+        display: flex;
+        align-items: center;
+
+        gap: 16px !important;
+
+        flex: 1;
+        justify-content: center;
     }
 
     .nav-route {
-        font-size: 15px !important;
+
+        font-size: 14px !important;
         white-space: nowrap;
     }
 
     .nav-logo img,
     .logo img {
+
         width: 42px !important;
         height: auto;
     }
@@ -387,22 +403,42 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     .cta-button,
     .nav-cta,
     .talk-btn {
-        padding: 10px 18px !important;
-        font-size: 14px !important;
+
+        padding: 10px 16px !important;
+
+        font-size: 13px !important;
+
         border-radius: 999px;
+
         white-space: nowrap;
+
+        flex-shrink: 0;
     }
 
-    /* Main navbar alignment */
-    .top-navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    /* Prevent overflow */
     body {
         overflow-x: hidden;
     }
 }
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+    .nav-links,
+    .nav-menu {
+        gap: 10px !important;
+    }
+
+    .nav-route {
+        font-size: 13px !important;
+    }
+
+    .cta-button,
+    .nav-cta,
+    .talk-btn {
+
+        padding: 8px 13px !important;
+        font-size: 12px !important;
+    }
+}
+
+
