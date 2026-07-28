@@ -25,9 +25,11 @@
         { "title": "Creative Design 15", "srcID": "Portfolio/Img/Mine/Mine15.png" },
         { "title": "Creative Design 16", "srcID": "Portfolio/Img/Mine/Mine16.png" },
         { "title": "Creative Design 17", "srcID": "Portfolio/Img/Mine/Mine17.png" }
+
       ],
       "videos": [],
       "motion": [
+    
         { "title": "Google Logo Reveal", "srcID": "Portfolio/Videos/Mycreativity1.mp4" },
         { "title": "Esports Organization Logo Reveal", "srcID": "Portfolio/Videos/Mycreativity2.mp4" },
         { "title": "Esports Organization Logo Reveal", "srcID": "Portfolio/Videos/Mycreativity3.mp4" },
@@ -61,7 +63,7 @@
         "workTypeTag": "Client Campaign",
         "graphics": [
           { "title": "Match Icecream Design", "srcID": "Portfolio/Img/Kaji/Bennevis1.png" },
-          { "title": "Match Icecream Design", "srcID": "Portfolio/Img/Kaji/Bennevis2.png" },
+          { "title": "Match icecream Design", "srcID": "Portfolio/Img/Kaji/Bennevis2.png" },
           { "title": "Biscotti di Prato Cheesecake Design", "srcID": "Portfolio/Img/Kaji/Bennevis3.png" },
           { "title": "Biscotti di Prato Icecream Design", "srcID": "Portfolio/Img/Kaji/Bennevis4.png" },
           { "title": "Biscotti di Prato Cheesecake Design", "srcID": "Portfolio/Img/Kaji/Bennevis5.png" },
@@ -81,7 +83,7 @@
           { "title": "Creme Hazelnut Design", "srcID": "Portfolio/Img/Kaji/Bruxelles3.png" },
           { "title": "Creme Caramel Design", "srcID": "Portfolio/Img/Kaji/Bruxelles4.png" },
           { "title": "Festive Design", "srcID": "Portfolio/Img/Kaji/Bruxelles5.png" },
-          { "title": "Classic Chocolate Design", "srcID": "Portfolio/Img/Kaji/Bruxelles6.png" },
+          { "title": "Classic Chcolate Design", "srcID": "Portfolio/Img/Kaji/Bruxelles6.png" },
           { "title": "Classic Chocolate Design", "srcID": "Portfolio/Img/Kaji/Bruxelles7.png" },
           { "title": "Creme Hazelnut Design", "srcID": "Portfolio/Img/Kaji/Bruxelles8.png" },
           { "title": "Walter Cleyman Design", "srcID": "Portfolio/Img/Kaji/Bruxelles9.png" },
@@ -122,8 +124,8 @@
           { "title": "Festive Design", "srcID": "Portfolio/Img/Kaji/MU3.png" },
           { "title": "Miss Universe Design", "srcID": "Portfolio/Img/Kaji/MU4.png" },
           { "title": "Miss Universe Design", "srcID": "Portfolio/Img/Kaji/MU5.png" },
-          { "title": "Miss Universe Print Design 1", "srcID": "Portfolio/Img/Kaji/MU-printing.png", "group": "Printing Materials" },
-          { "title": "Miss Universe Print Design 2", "srcID": "Portfolio/Img/Kaji/MU-printing1.png", "group": "Printing Materials" }
+          { "title": "Miss Universe Print Design", "srcID": "Portfolio/Img/Kaji/MU-printing.png", "group": "Printing Materials" },
+          { "title": "Miss Universe Print Design", "srcID": "Portfolio/Img/Kaji/MU-printing1.png", "group": "Printing Materials" }
         ],
         "videos": [],
         "motion": [
@@ -135,10 +137,10 @@
         "name": "Norvic Hospital",
         "workTypeTag": "Client Campaign",
         "graphics": [
-          { "title": "Norvic Print Design 1", "srcID": "Portfolio/Img/Kaji/Norvic-printing.png", "group": "Printing Materials" },
-          { "title": "Norvic Print Design 2", "srcID": "Portfolio/Img/Kaji/Norvic-printing1.png", "group": "Printing Materials" },
-          { "title": "Norvic Print Design 3", "srcID": "Portfolio/Img/Kaji/Norvic-printing2.png", "group": "Printing Materials" },
-          { "title": "Norvic Print Design 4", "srcID": "Portfolio/Img/Kaji/Norvic-printing3.png", "group": "Printing Materials" }
+          { "title": "Norvic Print Design", "srcID": "Portfolio/Img/Kaji/Norvic-printing.png", "group": "Printing Materials" },
+          { "title": "Norvic Print Design", "srcID": "Portfolio/Img/Kaji/Norvic-printing1.png", "group": "Printing Materials" },
+          { "title": "Norvic Print Design", "srcID": "Portfolio/Img/Kaji/Norvic-printing2.png", "group": "Printing Materials" },
+          { "title": "Norvic Print Design", "srcID": "Portfolio/Img/Kaji/Norvic-printing3.png", "group": "Printing Materials" }
         ],
         "videos": [],
         "motion": []
@@ -158,7 +160,7 @@
         { "title": "Malta Design", "srcID": "Portfolio/Img/Kashyap/Kashyap2.png", "group": "Digital Designs" },
         { "title": "Italy Design", "srcID": "Portfolio/Img/Kashyap/Kashyap3.png", "group": "Digital Designs" },
         { "title": "UK Design", "srcID": "Portfolio/Img/Kashyap/Kashyap4.png", "group": "Digital Designs" },
-        { "title": "Slovenia Design", "srcID": "Portfolio/Img/Kashyap/Kashyap5.png", "group": "Digital Designs" },
+        { "title": "Solvenia Design", "srcID": "Portfolio/Img/Kashyap/Kashyap5.png", "group": "Digital Designs" },
         { "title": "Festive Design", "srcID": "Portfolio/Img/Kashyap/Kashyap6.png", "group": "Digital Designs" },
         { "title": "Congratulations Design", "srcID": "Portfolio/Img/Kashyap/Kashyap7.png", "group": "Digital Designs" },
         { "title": "Partnership Design", "srcID": "Portfolio/Img/Kashyap/Kashyap8.png", "group": "Digital Designs" },
@@ -248,7 +250,7 @@
         { "title": "Promotional Design", "srcID": "Portfolio/Img/Craftalaya/Craftalaya3.png" },
         { "title": "Festive Design", "srcID": "Portfolio/Img/Craftalaya/Craftalaya4.png" },
         { "title": "Engagement Design", "srcID": "Portfolio/Img/Craftalaya/Craftalaya5.png" },
-        { "title": "Engagement Design", "srcID": "Portfolio/Img/Craftalaya/Craftalaya6.png" }
+        { "title": "Engagement Desig", "srcID": "Portfolio/Img/Craftalaya/Craftalaya6.png" }
       ],
       "videos": [
         { "title": "Reel Video", "srcID": "Portfolio/Videos/Craftalaya.mp4" },
