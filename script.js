@@ -110,13 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
         paila: {
             title: "Paila Education Consultancy",
             role: "Graphic Designer & Video Editor",
-            timeline: "NOV 2025 - FEB 2026",
+            timeline: "NOV 2025 - JULY 2026",
             achievements: [
                 "1. Graphic Designer & Video Editor (Nov 2025 – Feb 2026)",
                 "Designed social media posts, educational graphics, podcast videos and promotional visuals.",
                 "Created thumbnails, banners, and motion graphics to optimize content delivery.",
                 "Translated complex admission and visa documentation into clear, visually structured content.",
-                "2. Intern (Jun 2025 – Sep 2025)",
+                "2. Intern (Jun 2025 – NOV 2025)",
                 "Produced 100+ educational posts and motion-based graphics.",
                 "Edited promotional and podcast videos for various platforms."
             ],
