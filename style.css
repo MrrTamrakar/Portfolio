@@ -105,6 +105,8 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     font-size: 2.2rem; font-weight: 700; color: #ffffff; letter-spacing: -0.03em;
     opacity: 0; transform: translateY(15px);
     transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+    padding: 0 2rem;
 }
 #intro-text.visible { opacity: 1; transform: translateY(0); }
 
@@ -712,7 +714,6 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     margin-top: -1rem;
 }
 .dedicated-mini-nav::-webkit-scrollbar { display: none; }
-.dedicated-mini-nav:empty { display: none; }
 .dedicated-mini-nav a {
     color: var(--text-muted);
     text-decoration: none;
@@ -722,7 +723,6 @@ body { background-color: var(--bg-primary); color: var(--text-main); font-family
     border: 1px solid var(--border-color);
     border-radius: 30px;
     transition: all 0.25s ease;
-    white-space: nowrap;
     flex-shrink: 0;
 }
 .dedicated-mini-nav a:hover,

@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
             role: "Graphic Designer & Video Editor",
             timeline: "JUN 2025 - JULY 2026",
             achievements: [
-                "1. Graphic Designer & Video Editor (Nov 2025 – July 2026)",
+                "1. Graphic Designer & Video Editor (Nov 2025 – JULY 2026)",
                 "Designed social media posts, educational graphics, podcast videos and promotional visuals.",
                 "Created thumbnails, banners, and motion graphics to optimize content delivery.",
                 "Translated complex admission and visa documentation into clear, visually structured content.",
